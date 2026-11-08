@@ -34,7 +34,7 @@ Glasovni poziv je između dva preglednika. Oba korisnika trebaju internet i otvo
 - Status „Poziv je povezan” nastaje tek kad stvarni WebRTC peer connection prijavi uspostavljenu vezu. Signaling ili prihvat nije dokaz prijenosa zvuka.
 - Neprihvaćeni poziv istječe za45 sekundi; maksimalno trajanje je60 minuta; najviše12 započetih poziva po satu.
 - WebRTC prenosi zvuk između sudionika; baza čuva samo kratkotrajne opise povezivanja (SDP). SDP se briše pri završetku/isteku. Nema funkcije snimanja zvuka.
-- Ova instalacija koristi javni STUN za otkrivanje mreže. Dodatni TURN relej nije konfiguriran. Na nekim NAT/firewall/mobilnim mrežama izravni poziv može ne uspjeti. To se prikazuje kao neuspjeh; nema plaćenog rezervnog preusmjeravanja.
+- Ova instalacija koristi STUN za otkrivanje mreže i povezani TURN za posredovanje gdje je potrebno. TURN relej je povezan preko besplatnog računa od500MB mjesečno; usluga se na limitu zaustavlja. Na nekim NAT/firewall/mobilnim mrežama izravni poziv može ne uspjeti. To se prikazuje kao neuspjeh; nema plaćenog rezervnog preusmjeravanja.
 
 Radijskih i internetskih potvrda ne treba poistovjećivati s dolaskom pomoći. Za govor bez interneta projektni plan i dalje predviđa zasebne voki-tokije i vlastito napajanje.
 
@@ -50,10 +50,14 @@ Izvori: [WebRTC povezivanje i TURN](https://webrtc.org/getting-started/peer-conn
 
 ## Besplatni TURN relej
 
-Pripremljen je Cloudflare Pages endpoint POST /api/turn. Prvo provjerava aktivni ključ člana preko Supabase RPC-a, a zatim na poslužitelju dohvaća kratkotrajne ICE vjerodajnice iz Metered/Open Relay API-ja. Privatni providerAPIkey ne vraća se pregledniku i ne ulazi u izvorni paket. Odgovori se ne spremaju u cache.
+Pripremljen je Cloudflare Pages endpoint POST /api/turn. Prvo provjerava aktivni ključ člana preko Supabase RPC-a, a zatim na poslužitelju dohvaća ICE vjerodajnice za preglednik iz Metered/Open Relay API-ja. Privatni providerAPIkey ne vraća se pregledniku i ne ulazi u izvorni paket. Odgovori se ne spremaju u cache.
 
 Račun se otvara osobnim podacima vlasnika i novom lozinkom. U korisnikovom računu provjeren je i aktiviran Free Trial Global:500MB mjesečno, zaustavljanje na limitu, never charged, bez uptime SLA. Opća Open Relay stranica oglašava drugačiju kvotu; za ovaj projekt vrijedi stvarna kvota prikazana u računu. Ne aktivirati plaćeni paket ili automatsku nadoplatu. Dok račun i dvije poslužiteljske tajne nisu postavljeni, endpoint za ovlaštenog člana vraća503configured:false, a poziv pokušava izravniSTUN način uz vidljivu poruku. To nije potvrda aktivnogTURN-a.
 
 Tajne TURN_API_URL i TURN_API_KEY postavljaju se izvan javnog izvora. Lokalni operator može upisati {"apiUrl":"https://IME.metered.live/api/v1/turn/credentials","apiKey":"..."} u privatnu datoteku pa pokrenuti `python3 tools/configure_turn.py /put/do/privatne-datoteke.json`. Alat predaje vrijednosti Wrangleru krozstdin; ne stavljati ključ u argument komandne linije ili javni webconfig. Nakon toga ponovno objaviti Pages i potvrditi stvarni RTP preko relay kandidata.
 
 Izvor besplatnog paketa i API-ja: https://www.metered.ca/tools/openrelay/ .
+
+## Aktivacija potvrđena
+
+TURN APIkey je postavljen kao produkcijska poslužiteljska tajna. Javni endpoint za ovlaštenog člana vraća valjane ICEpostavke; prisilni relaytest potvrdio je stvarni dvosmjerni audioRTP. Besplatni limit računa je500MB/mjesečno, hardstop bez nadoplate. Detalji testnog okruženja: `community-verification-2026-11-08.md`.

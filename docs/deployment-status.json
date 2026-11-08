@@ -1,10 +1,10 @@
 {
-  "checked_at_utc": "2026-11-08T10:18:11.753407+00:00",
-  "web_version": "0.3.0",
+  "checked_at_utc": "2026-11-08T11:34:31.517271+00:00",
+  "web_version": "0.4.1",
   "android_version": "0.1.0-pilot",
   "public_url": "https://sigurni-signal.pages.dev/",
   "source_repository": "https://github.com/everybodycries/sigurni-signal",
-  "release": "https://github.com/everybodycries/sigurni-signal/releases/tag/v0.3.0-web",
+  "release": "https://github.com/everybodycries/sigurni-signal/releases/tag/v0.4.1-web",
   "cloudflare_static_deployment": "verified",
   "github_release": "See current release; native APK unchanged in v0.2.1-web",
   "production_checks": [
@@ -20,8 +20,9 @@
   ],
   "automated_checks": {
     "python_tests": 48,
-    "web_tests": 12,
-    "operations_document_tests": 15
+    "web_tests": 49,
+    "operations_tests": 15,
+    "postgres_community": "all isolated integration assertions passed"
   },
   "supabase": {
     "status": "configured_existing_accounts",
@@ -33,7 +34,7 @@
     "existing_tables_changed": false,
     "auth_settings_changed": false,
     "hosted_tests": "owner CRUD and cross-owner denial passed; rolled back; anon has no table privilege",
-    "real_user_browser_login": "not tested"
+    "real_user_browser_login": "Legacy email Auth not retested; new scoped member-key login and encrypted backup flow verified"
   },
   "not_verified": [
     "Physical radio delivery",
@@ -43,5 +44,15 @@
     "48h phone autonomy"
   ],
   "paid_plan_enabled": false,
-  "deployment_url": "https://eaa1eefc.sigurni-signal.pages.dev/"
+  "deployment_url": "https://eaa1eefc.sigurni-signal.pages.dev/",
+  "community": {
+    "status": "active_invite_only",
+    "admin": "provisioned; private local key file",
+    "group_and_direct_chat": "hosted API and browser verified",
+    "member_encrypted_backups": "actual browser encrypt/upload/decrypt/restore/delete verified",
+    "turn": "active; provider key server secret only",
+    "turn_free_quota": "500MB/month; stops at limit, never charged",
+    "voice": "real bidirectional RTP with forced relay candidates in2isolated browser contexts; synthetic audio",
+    "test_data": "removed; only active owner admin remains"
+  }
 }

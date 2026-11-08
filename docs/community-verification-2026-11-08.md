@@ -28,3 +28,13 @@ Za izdavanje nove vjerodajnice preglednički alat zahtijeva potvrdu pri samoj ra
 Chat je pohranjen na poslužitelju i nije krajnje šifriran. U aplikacijskom APIju privatni razgovor dohvaćaju samo dva sudionika; vlasnik baze ima tehnički pristup pohranjenom tekstu. Šifrirani plan koristi zasebnu zaštitnu frazu koja se ne šalje poslužitelju.
 
 Nisu potvrđeni fizički Android/iPhone mikrofon, rad preko stvarnih različitih WANmreža, zvonjenje u zatvorenoj aplikaciji (nije implementirano), PSTNpozivi/SMS (nisu dio sustava), radijske veze, dozvole ili autonomija napajanja. LoRa i lokalni offlineplan ostaju zasebni slojevi.
+
+## Završna aktivacija 0.4.1
+
+Korisnik je potvrdio izradu jedne vjerodajnice. Izrađena je Sigurni Signal vjerodajnica i njen zasebni APIkey spremljen je kao Cloudflare productionsecret zajedno s opaženom Metereddomenom. Širi developer secretKey nije korišten. Privatni APIkey nije u javnom izvoru, webconfigu ili ovim zapisima.
+
+Javni POST /api/turn vraća200configured:true za aktivnog člana i401 za nevažeći ključ. Vraća5 sanitiziranih ICEservera (STUN/TURN/TURNS).
+
+Ponovljen je stvarni browserRTPtest s iceTransportPolicy=relay, bez testnog dopuštanja loopback/mDNSpromjena. Dva odvojena browserkonteksta koristila su sintetičke mikrofone. Obje odabrane lokalne i udaljene ICEstrane bile su tipa relay. Prvi peer:5424 poslana/6392 primljena audio bajta; drugi:6395 poslanih/5381 primljenih. Provjereni mute/unmute i zaustavljanje svih lokalnih audio zapisa nakon prekida. To potvrđuje stvarni relejni transport; ne predstavlja terenski test fizičkih telefona ili dviju različitih WANmreža.
+
+Probne poruke, pozivnice, pozivi, kopije i pet prepoznatih probnih članova uklonjeni su nakon provjere. Preostaje jedan aktivan administrator;0 poruka/poziva/probnih pozivnica. Postojeće aplikacijske tablice i Auth nisu dirani.

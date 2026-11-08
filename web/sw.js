@@ -1,5 +1,5 @@
 /* Generated app-shell-only cache. Auth/backups and large downloads never cached. */
-const CACHE="sigurni-signal-web-7c589b289117db";
+const CACHE="sigurni-signal-web-a7d90dfdcfe2ea";
 const ASSETS=["/", "/index.html", "/style.css", "/app.mjs", "/community.mjs", "/config.json", "/manifest.webmanifest", "/guide.html", "/guide.css", "/data/guides.json", "/downloads/prirucnik-offline.html", "/downloads/offgrid-guide.html", "/assets/icon.svg", "/assets/icon-192.png", "/assets/icon-512.png", "/lib/cloud.mjs", "/lib/community.mjs", "/lib/crypto.mjs", "/lib/model.mjs", "/lib/storage.mjs", "/lib/voice.mjs"];
 const ALIASES=Object.fromEntries(ASSETS.filter(p=>p.endsWith('.html')).map(p=>[p==='/index.html'?'/':p.slice(0,-5),p]));
 const URLS=new Set([...ASSETS,...Object.keys(ALIASES)]);
