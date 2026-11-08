@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {isFresh,stockLow} from '../../web/lib/operations.mjs';import {freshState,validateState} from '../../web/lib/model.mjs';import {conversation} from '../../web/lib/community.mjs';
+test('Kragujevac defaults and channels coexist with existing planner cities',()=>{assert.equal(freshState().city,'Kragujevac');for(const city of ['Kragujevac','Zagreb','Sarajevo','Beograd'])assert.equal(validateState({...freshState(),city}).city,city);assert.equal(conversation({room:'Kragujevac'}).room,'Kragujevac');});
+test('self-reported availability expires, rejects future or absent reports',()=>{const now=Date.parse('2026-11-08T12:00:00Z');assert(isFresh('2026-11-08T11:59:00Z',now));assert(!isFresh('2026-11-08T08:00:00Z',now));assert(!isFresh('2026-11-08T13:00:00Z',now));assert(!isFresh(null,now));assert(!isFresh('bad',now));});
+test('stock warnings handle zero and fractional quantities without treating minimum as shortage',()=>{assert(stockLow({quantity:0,minimum:1}));assert(stockLow({quantity:'0.5',minimum:'1'}));assert(!stockLow({quantity:1,minimum:1}));assert(!stockLow({quantity:100,minimum:1}));});

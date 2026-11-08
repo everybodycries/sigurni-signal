@@ -1,13 +1,13 @@
 /* GPL-3.0-only. Scoped community credentials; unrelated Supabase Auth stays untouched. */
-export const ROOMS=['general','Zagreb','Sarajevo','Beograd'];
+export const ROOMS=['general','Kragujevac','Zagreb','Sarajevo','Beograd'];
 export function validKey(key){return typeof key==='string'&&/^[a-f0-9]{64}$/.test(key);}
 export function newKey(){return [...crypto.getRandomValues(new Uint8Array(32))].map(n=>n.toString(16).padStart(2,'0')).join('');}
 export async function keyHash(key){if(!validKey(key))throw new Error('Neispravan pristupni ključ.');return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(key)))].map(n=>n.toString(16).padStart(2,'0')).join('');}
 export function accessFile(key,self){if(!validKey(key)||!self?.id)throw new Error('Prijava nije dostupna.');return{type:'sigurni-signal-access',version:1,key,nickname:self.nickname};}
-export function parseAccess(text){if(typeof text!=='string'||text.length>4096)throw new Error('Datoteka ključa je prevelika.');const d=JSON.parse(text);if(d?.type!=='sigurni-signal-access'||d.version!==1||!validKey(d.key))throw new Error('Odaberi datoteku pristupnog ključa Sigurnog Signala.');return d.key;}
+export function parseAccess(text){if(typeof text!=='string'||text.length>4096)throw new Error('Datoteka ključa je prevelika.');const d=JSON.parse(text);if(d?.type!=='sigurni-signal-access'||d.version!==1||!validKey(d.key))throw new Error('Izaberi datoteku pristupnog ključa Sigurnog Signala.');return d.key;}
 export function inviteFile(invite,label){if(!validKey(invite))throw new Error('Neispravna pozivnica.');return{type:'sigurni-signal-invite',version:1,invite,label};}
-export function parseInvite(text){if(typeof text!=='string'||text.length>4096)throw new Error('Pozivnica je prevelika.');const d=JSON.parse(text);if(d?.type!=='sigurni-signal-invite'||d.version!==1||!validKey(d.invite))throw new Error('Odaberi datoteku pozivnice Sigurnog Signala.');return d.invite;}
-export function conversation({room='general',peer=null}={}){if(peer!==null&&!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(peer))throw new Error('Odaberi člana za privatni razgovor.');if(!ROOMS.includes(room))throw new Error('Odaberi kanal.');return{room,peer};}
+export function parseInvite(text){if(typeof text!=='string'||text.length>4096)throw new Error('Pozivnica je prevelika.');const d=JSON.parse(text);if(d?.type!=='sigurni-signal-invite'||d.version!==1||!validKey(d.invite))throw new Error('Izaberi datoteku pozivnice Sigurnog Signala.');return d.invite;}
+export function conversation({room='general',peer=null}={}){if(peer!==null&&!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(peer))throw new Error('Izaberi člana za privatni razgovor.');if(!ROOMS.includes(room))throw new Error('Izaberi kanal.');return{room,peer};}
 export function messageInput(body,scope,requestId=crypto.randomUUID()){if(typeof body!=='string'||!body.trim()||body.trim().length>1500||/[\x00-\x08\x0b-\x1f\x7f]/.test(body))throw new Error('Poruka mora imati 1–1500 znakova bez kontrolnih znakova.');if(!/^[0-9a-f-]{36}$/i.test(requestId))throw new Error('Neispravna oznaka slanja.');return{...conversation(scope),body:body.trim(),request_id:requestId};}
 export class CommunityClient{
  constructor(config,{fetcher=globalThis.fetch}={}){if(!/^https:\/\/[a-z0-9]+\.supabase\.co$/.test(config?.url||'')||!config?.publishableKey)throw new Error('Chat nije konfiguriran.');this.url=config.url;this.key=config.publishableKey;this.fetcher=fetcher.bind(globalThis);this.session=null;this.authEpoch=0;}
@@ -17,4 +17,4 @@ export class CommunityClient{
  logout(){this.authEpoch++;this.session=null;}
 }
 /** Capture before any crypto/dialog await, recheck before every account-bound effect. */
-export function operationGuard(client,epoch){const generation=epoch(),key=client?.session?.key,owner=client?.session?.self?.id;if(!validKey(key)||!owner)throw new Error('Prijavi se osobnim ključem.');return()=>{if(epoch()!==generation||client?.session?.key!==key||client?.session?.self?.id!==owner||client.session.expiresAt<=Date.now())throw new Error('Prijava je promijenjena ili istekla; ponovi radnju.');};}
+export function operationGuard(client,epoch){const generation=epoch(),key=client?.session?.key,owner=client?.session?.self?.id;if(!validKey(key)||!owner)throw new Error('Prijavi se ličnim ključem.');return()=>{if(epoch()!==generation||client?.session?.key!==key||client?.session?.self?.id!==owner||client.session.expiresAt<=Date.now())throw new Error('Prijava je promenjena ili istekla; ponovi radnju.');};}

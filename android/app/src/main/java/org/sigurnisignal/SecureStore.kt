@@ -56,7 +56,7 @@ class SecureStore(context: Context) : SQLiteOpenHelper(context,"signal.db",null,
         require(destination == "^all" || Regex("^![0-9a-fA-F]{8}$").matches(destination)) { "Odaberite valjan Meshtastic čvor ili ^all" }
         require(channel in 0..7)
         val queued=readableDatabase.rawQuery("SELECT count(*) FROM messages WHERE incoming=0 AND state IN ('queued','submitted','inflight')",null).use { it.moveToFirst();it.getInt(0) }
-        require(queued<100) { "Red ima 100 aktivnih poruka. Potreban je pregled prije novih slanja." }
+        require(queued<100) { "Red ima 100 aktivnih poruka. Potreban je pregled pre novih slanja." }
         var id = Protocol.newId()
         while(get(id)!=null) id=Protocol.newId()
         Protocol.encode(id,body)
@@ -152,7 +152,7 @@ class SecureStore(context: Context) : SQLiteOpenHelper(context,"signal.db",null,
     @Synchronized fun contacts():List<Contact> = readableDatabase.rawQuery("SELECT node,name FROM contacts ORDER BY node",null).use { c -> buildList { while(c.moveToNext())add(Contact(c.getString(0),crypto.decrypt(c.getString(1)))) } }
     @Synchronized fun saveContact(node:String,name:String) { require(Regex("^![0-9a-fA-F]{8}$").matches(node));require(name.isNotBlank()&&name.length<=80);writableDatabase.insertWithOnConflict("contacts",null,ContentValues().apply {put("node",node.lowercase());put("name",crypto.encrypt(name))},SQLiteDatabase.CONFLICT_REPLACE) }
     @Synchronized fun recordPublicConsent(exactText:String,destination:String) {
-        require(exactText.isNotBlank() && Protocol.byteCount(exactText)<=200 && !exactText.any { it.code<32 || it.code==127 });require(destination in listOf("Zagreb","Sarajevo","Beograd"))
+        require(exactText.isNotBlank() && Protocol.byteCount(exactText)<=200 && !exactText.any { it.code<32 || it.code==127 });require(destination in listOf("Kragujevac","Zagreb","Sarajevo","Beograd"))
         audit(writableDatabase,null,"public_draft_consented","destination=$destination\nexact_text=$exactText")
     }
 }

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {freshState,validateState,wireMessage,byteLength,powerBudget,nextWatch} from '../../web/lib/model.mjs';
 import {seal,unseal,validateEnvelope} from '../../web/lib/crypto.mjs';
-test('fresh planner starts empty and has no fabricated measurements',()=>{const s=freshState();assert.equal(s.contacts.length,0);assert.equal(s.drafts.length,0);assert.equal(s.city,'Zagreb');assert.ok(s.checklist.length>=10);assert.ok(s.checklist.every(x=>!x.done));});
+test('fresh planner starts empty and has no fabricated measurements',()=>{const s=freshState();assert.equal(s.contacts.length,0);assert.equal(s.drafts.length,0);assert.equal(s.city,'Kragujevac');assert.ok(s.checklist.length>=10);assert.ok(s.checklist.every(x=>!x.done));});
 test('wire limits include ID and Croatian characters',()=>{assert.equal(wireMessage('A7K42P9Q','DOBRO SAM'),'[A7K42P9Q] DOBRO SAM');assert.equal(byteLength(wireMessage('AAAAAAAA','ć'.repeat(94)+'a')),200);assert.throws(()=>wireMessage('AAAAAAAA','ć'.repeat(95)));assert.throws(()=>wireMessage('AAAAAAAA','a\nb'));});
 test('imports are bounded and cannot contain unvalidated nested values',()=>{assert.throws(()=>validateState({}));const s=freshState();s.contacts=[{id:'a',name:'x',node:'javascript:evil'}];assert.throws(()=>validateState(s));const d=freshState();d.drafts=Array(501).fill({});assert.throws(()=>validateState(d));});
 test('power calculator accounts for losses, zero and NaN',()=>{assert.ok(Math.abs(powerBudget(100,3,.8,.9)-541.6666667)<.0001);for(const n of [0,-1,NaN,Infinity])assert.throws(()=>powerBudget(n));});

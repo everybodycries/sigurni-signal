@@ -23,3 +23,7 @@ Karta starts empty. Prepare a licensed MapLibre style/region while online, inclu
 ## Evidence
 
 7JVMtests passed; debugAPK compiled and signature verified. No Android device/emulator/BLE radio was available. Tests under src/androidTest require actual hardware/emulator (`./gradlew connectedDebugAndroidTest`) and were not executed. BLE reliability, background behavior, missed-message replay, maps offline and battery targets require the field/device matrix; compilation does not prove them. iPhone uses the official free client plus documents, no customiOS app.
+
+## Priprema za Kragujevac (web 0.5.0)
+
+Izvor sada podržava Kragujevac u izboru grada i radiogramu, početni centar mape i srpsku latinicu. Novi APK nije izgrađen: lokalni offline pokušaj nema keširani Gradle Android plugin 9.0.1 niti pronađen Android SDK. Ranije objavljeni APK 0.1.0 ostaje prethodno izdanje; nove zajedničke logističke funkcije su u web/PWA izdanju.

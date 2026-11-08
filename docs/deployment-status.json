@@ -1,37 +1,34 @@
 {
-  "checked_at_utc": "2026-11-08T11:34:31.517271+00:00",
-  "web_version": "0.4.1",
+  "checked_at_utc": "2026-11-08T14:21:13.273105+00:00",
+  "web_version": "0.5.0",
   "android_version": "0.1.0-pilot",
   "public_url": "https://sigurni-signal.pages.dev/",
   "source_repository": "https://github.com/everybodycries/sigurni-signal",
-  "release": "https://github.com/everybodycries/sigurni-signal/releases/tag/v0.4.1-web",
+  "release": "https://github.com/everybodycries/sigurni-signal/releases/tag/v0.5.0-web",
   "cloudflare_static_deployment": "verified",
   "github_release": "See current release; native APK unchanged in v0.2.1-web",
   "production_checks": [
-    "HTTPS and public assets",
-    "live Supabase policy catalog",
-    "hosted owner/cross-owner rollback tests",
-    "Public config0.3.0 and source ZIP hash",
-    "GitHub release is public prerelease and source digest matches",
-    "All eight routes display expected heading",
-    "390px routes without overflow;320px all menu entries visible;1440px no overflow",
-    "Network-offline app reload and separate handbook navigation",
-    "Supabase Auth health200;anonymous REST read401"
+    "See current 0.5 verification report; historical 0.3 and 0.4 reports remain historical evidence."
   ],
   "automated_checks": {
-    "python_tests": 48,
-    "web_tests": 49,
-    "operations_tests": 15,
-    "postgres_community": "all isolated integration assertions passed"
+    "node_passed": 52,
+    "python_run": 48,
+    "python_passed": 46,
+    "python_skipped_optional_sdk": 2,
+    "docs_passed": 15,
+    "postgres_community_operations": "isolated integration assertions passed"
   },
   "supabase": {
     "status": "configured_existing_accounts",
     "project": "AstroZeus",
     "project_ref": "idgjvhuctieesmkyiwfl",
     "changes": [
-      "new public.sigurni_signal_backups table and RLS policy"
+      "Existing private community capability API extended for Kragujevac",
+      "Three private tables: checkins, tasks, supplies",
+      "Private invoker helper, called after active member key validation",
+      "Versioned logistics snapshots"
     ],
-    "existing_tables_changed": false,
+    "existing_tables_changed": "Only Sigurni Signal city constraints/RPC extended; other applications untouched",
     "auth_settings_changed": false,
     "hosted_tests": "owner CRUD and cross-owner denial passed; rolled back; anon has no table privilege",
     "real_user_browser_login": "Legacy email Auth not retested; new scoped member-key login and encrypted backup flow verified"
@@ -41,7 +38,9 @@
     "cross-city radio links",
     "regulatory approval",
     "72h infrastructure autonomy",
-    "48h phone autonomy"
+    "48h phone autonomy",
+    "New Android APK: offline build lacks cached Gradle plugin and SDK",
+    "Military certification or classified-data accreditation"
   ],
   "paid_plan_enabled": false,
   "deployment_url": "https://eaa1eefc.sigurni-signal.pages.dev/",
@@ -54,5 +53,8 @@
     "turn_free_quota": "500MB/month; stops at limit, never charged",
     "voice": "real bidirectional RTP with forced relay candidates in2isolated browser contexts; synthetic audio",
     "test_data": "removed; only active owner admin remains"
-  }
+  },
+  "headquarters": "Kragujevac",
+  "linked_base": "Zagreb",
+  "verification_report": "docs/kragujevac-verification-2026-11-08.md"
 }

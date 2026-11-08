@@ -60,7 +60,7 @@ class MeshtasticBle(private val context:Context,private val onState:(String,Bool
     fun connect(address:String) {
         close();closed=false;onState("Povezivanje s radiouređajem…",false)
         try {gatt=adapter.getRemoteDevice(address).connectGatt(context,false,callback,BluetoothDevice.TRANSPORT_LE)}
-        catch(_:Exception){fail("Povezivanje nije uspjelo. Provjerite dopuštenja i Bluetooth.")}
+        catch(_:Exception){fail("Povezivanje nije uspelo. Provjerite dozvole i Bluetooth.")}
     }
     fun close() {
         closed=true;ready=false;handler.removeCallbacks(timeout);operations.clear();busy=false;drain.reset()
@@ -68,15 +68,15 @@ class MeshtasticBle(private val context:Context,private val onState:(String,Bool
         gatt?.disconnect();gatt?.close();gatt=null;to=null;from=null;myNode=0;lora=null;mqttEnabled=null;channels.clear();negotiatedMtu=23
     }
     fun policyError(channel:Int):String? {
-        val cfg=lora ?:return "Radio nije dostavio LoRa postavke; slanje je zaključano"
+        val cfg=lora ?:return "Radio nije dostavio LoRa podešavanja; slanje je zaključano"
         if(cfg.region.name!="EU_868")return "Pilot prihvaća samo prethodno odobreni EU_868 profil; provjerite lokalnu dopuštenost"
         if(cfg.overrideDutyCycle)return "Radio ima uključen override duty-cycle; slanje je zaključano"
-        if(mqttEnabled==null)return "Radio nije dostavio MQTT postavke; slanje je zaključano"
+        if(mqttEnabled==null)return "Radio nije dostavio MQTT podešavanja; slanje je zaključano"
         if(mqttEnabled==true)return "MQTT modul mora biti isključen za ovaj offline pilot"
-        val c=channels[channel] ?:return "Odabrani kanal nije dostavljen; slanje je zaključano"
-        if(c.roleValue==0 || !c.hasSettings())return "Odabrani kanal nije aktivan"
+        val c=channels[channel] ?:return "Izabrani kanal nije dostavljen; slanje je zaključano"
+        if(c.roleValue==0 || !c.hasSettings())return "Izabrani kanal nije aktivan"
         val key=c.settings.psk.toByteArray()
-        if(key.size !in listOf(16,32) || key.all{it==0.toByte()})return "Potrebno je postaviti osobno podijeljen privatni ključ kanala"
+        if(key.size !in listOf(16,32) || key.all{it==0.toByte()})return "Potrebno je postaviti lično podijeljen privatni ključ kanala"
         val publicKey=byteArrayOf(0xd4.toByte(),0xf1.toByte(),0xbb.toByte(),0x3a,0x20,0x29,0x07,0x59,0xf0.toByte(),0xbc.toByte(),0xff.toByte(),0xab.toByte(),0xcf.toByte(),0x4e,0x69,0x01)
         if(key.size==16 && key.take(15)==publicKey.take(15) && ((key[15].toInt()and 255) in 1..10))return "Javni zadani ključ nije prihvatljiv za privatnu komunikaciju"
         if(c.settings.uplinkEnabled || c.settings.downlinkEnabled)return "MQTT uplink/downlink kanala mora biti isključen za ovaj pilot"
@@ -106,7 +106,7 @@ class MeshtasticBle(private val context:Context,private val onState:(String,Bool
     private val callback=object:BluetoothGattCallback() {
         override fun onConnectionStateChange(g:BluetoothGatt,status:Int,newState:Int) {handler.post {
             if(g!==gatt)return@post
-            if(status!=0 || newState==BluetoothProfile.STATE_DISCONNECTED){fail("Radio odspojen. Nepotvrđene poruke ostaju spremljene.");return@post}
+            if(status!=0 || newState==BluetoothProfile.STATE_DISCONNECTED){fail("Radio odspojen. Nepotvrđene poruke ostaju sačuvane.");return@post}
             if(newState==BluetoothProfile.STATE_CONNECTED)enqueue {g.requestMtu(512)}
         }}
         override fun onMtuChanged(g:BluetoothGatt,mtu:Int,status:Int) {handler.post {
@@ -145,7 +145,7 @@ class MeshtasticBle(private val context:Context,private val onState:(String,Bool
                         if(frame.hasConfig() && frame.config.hasLora())lora=frame.config.lora
                         if(frame.hasChannel())channels[frame.channel.index]=frame.channel
                         if(frame.hasModuleConfig() && frame.moduleConfig.hasMqtt())mqttEnabled=frame.moduleConfig.mqtt.enabled
-                        if(frame.configCompleteId==token && myNode!=0){ready=true;onState("Radio povezan • privatnost i RF profil provjerite u postavkama",true)}
+                        if(frame.configCompleteId==token && myNode!=0){ready=true;onState("Radio povezan • privatnost i RF profil provjerite u podešavanjima",true)}
                         onPacket(frame)
                     }catch(_:Exception){onState("Neispravan radio paket odbačen",ready)}
                 }

@@ -54,21 +54,21 @@ import org.maplibre.android.offline.*
                 TextButton(onClick={region.getStatus(object:OfflineRegion.OfflineRegionStatusCallback{
                     override fun onStatus(s:OfflineRegionStatus?){
                         if(s==null){status="Status karte nije dostupan.";return}
-                        if(!s.isComplete){status="Paket nije dovršen; nemojte računati na offline kartu.";return}
+                        if(!s.isComplete){status="Paket nije završen; nemojte računati na offline kartu.";return}
                         val definition=region.definition as? OfflineTilePyramidRegionDefinition ?:return
-                        val savedStyle=definition.styleURL ?:run{status="Paket nema spremljen stil.";return}
+                        val savedStyle=definition.styleURL ?:run{status="Paket nema sačuvan stil.";return}
                         val bounds=definition.bounds ?:run{status="Paket nema granice karte.";return}
                         view.getMapAsync{map->map.setStyle(Style.Builder().fromUri(savedStyle));map.cameraPosition=CameraPosition.Builder().target(bounds.center).zoom(11.0).build()}
-                        status="Spremljena karta: ${metadata?.optString("city")}. ${metadata?.optString("attribution")}. Offline rad prije uporabe provjerite u zrakoplovnom načinu."
+                        status="Sačuvana karta: ${metadata?.optString("city")}. ${metadata?.optString("attribution")}. Offline rad pre upotrebe provjerite u zrakoplovnom načinu."
                     }
-                    override fun onError(error:String?){status=error ?: "Čitanje spremljene karte nije uspjelo."}
+                    override fun onError(error:String?){status=error ?: "Čitanje sačuvane karte nije uspelo."}
                 })}){Text("Otvori ${metadata?.optString("city")?:"paket"}")}
             }
             OutlinedTextField(styleUrl,{styleUrl=it;authorized=false},label={Text("HTTPS URL licenciranog MapLibre stila")},modifier=Modifier.fillMaxWidth())
             OutlinedTextField(attribution,{attribution=it;authorized=false},label={Text("Atribucija i naziv izvora")},modifier=Modifier.fillMaxWidth())
-            Row{Checkbox(authorized,{authorized=it});Text("Izvor dopušta offline pohranu. Pripremu pokrećem dok imam internet.",style=MaterialTheme.typography.bodySmall)}
+            Row{Checkbox(authorized,{authorized=it});Text("Izvor dozvoljava offline čuvanje. Pripremu pokrećem dok imam internet.",style=MaterialTheme.typography.bodySmall)}
             Button(enabled=authorized&&styleUrl.startsWith("https://")&&attribution.isNotBlank()&&!downloading,onClick={
-                val (lat,lon)=when(city){"Sarajevo"->43.8563 to 18.4131;"Beograd"->44.7866 to 20.4489;else->45.8150 to 15.9819}
+                val (lat,lon)=when(city){"Kragujevac"->44.0128 to 20.9114;"Sarajevo"->43.8563 to 18.4131;"Beograd"->44.7866 to 20.4489;else->45.8150 to 15.9819}
                 val definition=OfflineTilePyramidRegionDefinition(styleUrl,LatLngBounds.from(lat+0.15,lon+0.2,lat-0.15,lon-0.2),8.0,14.0,context.resources.displayMetrics.density)
                 val metadata=JSONObject().put("city",city).put("attribution",attribution).put("verified_shelters",0).toString().toByteArray()
                 downloading=true;status="Priprema karte pokrenuta. Internet je potreban samo za pripremu."
@@ -76,15 +76,15 @@ import org.maplibre.android.offline.*
                     override fun onCreate(region:OfflineRegion){
                         activeRegion=region
                         region.setObserver(object:OfflineRegion.OfflineRegionObserver{
-                            override fun onStatusChanged(s:OfflineRegionStatus){status="Karta: ${s.completedResourceCount}/${s.requiredResourceCount} resursa";if(s.isComplete){downloading=false;region.setDownloadState(OfflineRegion.STATE_INACTIVE);status="Preuzimanje dovršeno. Provjerite potpuno offline otvaranje prije oslanjanja na kartu.";refresh()}}
-                            override fun onError(error:OfflineRegionError){downloading=false;region.setDownloadState(OfflineRegion.STATE_INACTIVE);status="Preuzimanje nije dovršeno: ${error.message}"}
+                            override fun onStatusChanged(s:OfflineRegionStatus){status="Karta: ${s.completedResourceCount}/${s.requiredResourceCount} resursa";if(s.isComplete){downloading=false;region.setDownloadState(OfflineRegion.STATE_INACTIVE);status="Preuzimanje završeno. Provjerite potpuno offline otvaranje pre oslanjanja na kartu.";refresh()}}
+                            override fun onError(error:OfflineRegionError){downloading=false;region.setDownloadState(OfflineRegion.STATE_INACTIVE);status="Preuzimanje nije završeno: ${error.message}"}
                             override fun mapboxTileCountLimitExceeded(limit:Long){downloading=false;region.setDownloadState(OfflineRegion.STATE_INACTIVE);status="Dosegnuto ograničenje paketa ($limit); karta nije spremna."}
                         });region.setDownloadState(OfflineRegion.STATE_ACTIVE)
                     }
                     override fun onError(error:String){downloading=false;status="Karta nije pripremljena: $error"}
                 })
             }){Text("Pripremi grad i okolicu")}
-            if(downloading)TextButton(onClick={activeRegion?.setDownloadState(OfflineRegion.STATE_INACTIVE);downloading=false;status="Preuzimanje zaustavljeno. Nedovršena karta nije spremna za offline uporabu."}){Text("Zaustavi pripremu karte")}
+            if(downloading)TextButton(onClick={activeRegion?.setDownloadState(OfflineRegion.STATE_INACTIVE);downloading=false;status="Preuzimanje zaustavljeno. Nedovršena karta nije spremna za offline upotrebu."}){Text("Zaustavi pripremu karte")}
             Text("Nema ruta kroz radiološki opasna područja. Označene koordinate nisu potvrda sigurnosti.",style=MaterialTheme.typography.bodySmall)
         }
     }

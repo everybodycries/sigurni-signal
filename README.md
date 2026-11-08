@@ -1,12 +1,14 @@
-# Sigurni Signal — web 0.2 i Android pilot 0.1
+# Sigurni Signal — Kragujevac ↔ Zagreb / web 0.5.0
+
+Aktuelni obim je terenska koordinacija i logistika na srpskoj latinici, sa Kragujevcem kao centrom i Zagrebom kao povezanom bazom. Uputstva: [Kragujevac ↔ Zagreb](docs/kragujevac-zagreb.md).
 
 Nadogradnja uključuje instalabilni web s lokalnim planom, offline priručnikom, pripremom radijskih nacrta, šifriranim izvozom i pripremljenim Supabase povezivanjem. Web nije radioodašiljač. Android APK zadržava vlastiti provjereni pilot build i odvojenu verziju0.1.
 
 - Javni web: https://sigurni-signal.pages.dev (adresu potvrditi u docs/deployment-status.json nakon objave).
-- Android i izvorni release: https://github.com/everybodycries/sigurni-signal/releases/tag/v0.4.1-web
+- Android i izvorni release: https://github.com/everybodycries/sigurni-signal/releases/tag/v0.5.0-web
 - Lokalni javni web: `python3 -m gateway.server` → http://127.0.0.1:8088 ; eksplicitniLAN: `python3 -m gateway.server --lan`.
 - Privatna bazna konzola ostaje odvojena: upute ispod. Ne izlagati je javnom internetu.
-- Supabase je neobvezan i povezan s postojećim projektom AstroZeus, samo kroz novu tablicu `sigurni_signal_backups` s prisilnim RLS-om. Postojeće tablice i Auth postavke nisu mijenjane. Koristi postojeći aplikacijski račun; javna registracija nije uključena.
+- Supabase je povezan sa postojećim projektom AstroZeus: zasebna privatna šema `sigurni_signal_private` podržava pozivnice, članove, chat, pozive, šifrovane kopije i operativnu logistiku. Ranija tabela `sigurni_signal_backups` ostaje za postojeće e-mail račune. Podaci i Auth podešavanja drugih aplikacija nisu menjani; nema javne registracije bez pozivnice.
 
 Detalji: [web nadogradnja](docs/web-upgrade.md), [vlastita mreža](docs/offgrid-deployment.md), [Supabase](docs/supabase-setup.md). Sve mreže trebaju energiju; baterije/solar i radijski domet zahtijevaju stvarnu provjeru.
 

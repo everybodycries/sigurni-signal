@@ -76,7 +76,7 @@ class RadioService:Service() {
                 db.receive(sender,p.id.toLong() and 0xffffffffL,d.payload.toStringUtf8(),p.channel)
                 getSystemService(NotificationManager::class.java).notify(2,NotificationCompat.Builder(this,"received")
                     .setSmallIcon(android.R.drawable.stat_notify_chat).setContentTitle("Primljena radijska poruka")
-                    .setContentText("Otvorite aplikaciju; sadržaj i pošiljatelj nisu službeno provjereni.").setAutoCancel(true).build())
+                    .setContentText("Otvorite aplikaciju; sadržaj i pošiljalac nisu službeno provereni.").setAutoCancel(true).build())
             }
             Runtime.changed()
         }catch(_:Exception){Runtime.state.update{it.copy(error="Neispravan ili nepodržan paket odbačen")}}

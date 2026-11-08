@@ -28,12 +28,13 @@ def main():
  offgrid=(ROOT/'docs/offgrid-deployment.md').read_text()
  import html
  (WEB/'downloads/offgrid-guide.html').write_text('<!doctype html><html lang="hr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vlastita lokalna mreža</title><link rel="stylesheet" href="/guide.css"><main><h1>Vlastita lokalna mreža</h1><pre>'+html.escape(offgrid)+'</pre></main></html>')
+ (WEB/'downloads/kragujevac-zagreb.html').write_text('<!doctype html><html lang="sr-Latn"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kragujevac ↔ Zagreb — terenski postupak</title><link rel="stylesheet" href="/guide.css"><main><h1>Kragujevac ↔ Zagreb</h1><pre>'+html.escape((ROOT/'docs/kragujevac-zagreb.md').read_text())+'</pre></main></html>')
  for size in (192,512):(WEB/f'assets/icon-{size}.png').write_bytes(png_icon(size))
  config=json.loads((WEB/'config.json').read_text());
  if (ROOT/'sigurni-signal-pilot.apk').exists():config['nativeSha256']=hashlib.sha256((ROOT/'sigurni-signal-pilot.apk').read_bytes()).hexdigest()
  elif not re.fullmatch(r'[a-f0-9]{64}',config.get('nativeSha256','')):raise ValueError('Supply verified APK or configured nativeSha256')
  (WEB/'config.json').write_text(json.dumps(config,ensure_ascii=False,indent=2)+'\n')
- cache_files=['/','/index.html','/style.css','/app.mjs','/community.mjs','/config.json','/manifest.webmanifest','/guide.html','/guide.css','/data/guides.json','/downloads/prirucnik-offline.html','/downloads/offgrid-guide.html','/assets/icon.svg','/assets/icon-192.png','/assets/icon-512.png']+[f'/lib/{p.name}' for p in sorted((WEB/'lib').glob('*.mjs'))]
+ cache_files=['/','/index.html','/style.css','/app.mjs','/community.mjs','/operations.mjs','/config.json','/manifest.webmanifest','/guide.html','/guide.css','/data/guides.json','/downloads/prirucnik-offline.html','/downloads/offgrid-guide.html','/downloads/kragujevac-zagreb.html','/assets/icon.svg','/assets/icon-192.png','/assets/icon-512.png']+[f'/lib/{p.name}' for p in sorted((WEB/'lib').glob('*.mjs'))]
  digest=hashlib.sha256(b'worker-v2-normalized-pages'+b''.join((WEB/f.lstrip('/')).read_bytes() for f in cache_files if f!='/')).hexdigest()[:14]
  sw="""/* Generated app-shell-only cache. Auth/backups and large downloads never cached. */
 const CACHE=__CACHE__;

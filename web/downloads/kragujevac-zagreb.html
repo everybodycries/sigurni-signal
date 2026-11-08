@@ -1,0 +1,36 @@
+<!doctype html><html lang="sr-Latn"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kragujevac ↔ Zagreb — terenski postupak</title><link rel="stylesheet" href="/guide.css"><main><h1>Kragujevac ↔ Zagreb</h1><pre># Sigurni Signal 0.5 — Kragujevac ↔ Zagreb
+
+Dogovoreni obim: terenska koordinacija i logistika, srpska latinica. Kragujevac je glavni centar, Zagreb povezana baza. Sarajevo i Beograd su zadržani radi kompatibilnosti sa postojećim članovima i kopijama plana. Postojećim članovima grad nije automatski promenjen; menjaju ga u Moj profil. Novi lokalni plan počinje u Kragujevcu.
+
+## Dnevni postupak
+
+1. Otvori aplikaciju i učitaj svoj lični ključ u Chat i pozivi.
+2. Otvori Operativnu tablu. Proveri datum poslednjeg preuzimanja i filter grada.
+3. Potvrdi Moje javljanje: spreman/na, potrebna podrška ili van smene. To je lični iskaz; prijava starija od četiri sata je zastarela i nije dokaz prisustva na mreži.
+4. Administrator otvara Administracija zadataka i zaliha, bira odgovornog člana, grad, prioritet i opcioni rok. Rok se unosi u vremenu uređaja, čuva kao UTC, a u pregledu prikazuje po Europe/Belgrade.
+5. Odgovorni član bira Prihvaćeno, Zastoj ili Završeno. Administrator može i otkazati. Zatvoren zadatak se ne otvara ponovo; pravi se novi za novu primopredaju.
+6. Administrator popisuje vodu, napajanje, radio uređaje i druge zalihe. Količina ispod minimuma prikazuje upozorenje. Promene tuđeg novijeg popisa se odbijaju; osveži tablu pre izmene.
+7. Na kraju smene potvrdi van smene, usmeno predaj otvorene zadatke i pripremi papirni rezervni dnevnik.
+
+## Veza i energija
+
+Zajednička tabla, chat i audio-pozivi koriste internet, isti postojeći pristupni ključ i besplatni hosting/Supabase. Dolazni pozivi zahtevaju otvorenu aplikaciju. TURN deli postojeći besplatni limit 500 MB mesečno; zaustavlja se na limitu bez naplate. Nema govora preko LoRa, običnih telefonskih poziva niti garantovane hitne službe.
+
+Bez javnog interneta ostaju prethodno sačuvan lokalni plan, priručnik i nacrti za zaseban LoRa radio. Zajednička operativna tabla se ne sinhronizuje offline i nije kopija u šifrovanom ličnom planu. Otvorena tabla može prikazivati starije podatke uz datum; posle ponovnog učitavanja bez prijave nije prikazana. Podaci table nisu sačuvani u service-worker kešu, localStorage ili IndexedDB.
+
+Planirani radijski prozori su 08:00, 14:00 i 20:00, po 30 minuta. To nije dežurna služba. Kragujevac–Zagreb je planirana radijska veza: potrebni su operateri, dozvole, unapred postavljene antene i merenja. Ne izlazi iz zaklona radi signala. Svi uređaji zahtevaju napajanje. Ciljevi 72h baze i 48h telefoni ostaju terenski ciljevi.
+
+Obrasci `templates/kragujevac-zagreb-local-rf.csv` i `templates/kragujevac-zagreb-intercity-rf.csv` su prazni planovi testiranja, bez izmišljenih rezultata.
+
+## Pristup i bezbednost
+
+Ovo je softverski pilot za koordinaciju i logistiku, bez vojne sertifikacije ili akreditacije za poverljive podatke. Namena i maslinasti izgled nisu dokaz sigurnosne klasifikacije. Ne unositi tajne, precizne položaje ili medicinske podatke u zajedničku tablu. Odobreni članovi vide sve gradove, popise i zadatke; gradski filter nije bezbednosna granica. Chat i tabla koriste HTTPS; nisu krajnje šifrovani u bazi. Vlasnik baze tehnički može pročitati podatke. Šifrovanje lične rezervne kopije ostaje zasebno, na klijentu.
+
+Uloge su administrator i član. Svaka izmena ponovo proverava aktivnost i ulogu na serveru. Član može potvrditi samo svoje stanje i menjati samo svoj zadatak. Broj revizije štiti od prepisivanja novijeg zadatka ili popisa. SQL tabele su privatne sa RLS i FORCE RLS, bez direktnih API privilegija; javni postojeći RPC poziva privatnu funkciju tek nakon provere ličnog ključa. Nema promene Supabase Auth konfiguracije ili drugih aplikacija.
+
+Pilot granice: do 50 aktivnih članova, 1000 zadataka i 500 stavki zaliha, najviše 20 operativnih izmena po članu u minutu. Javljanje čuva samo poslednje stanje; dnevnik promena ostaje u postojećem administratorskom auditu do 90 dana po postojećem postupku čišćenja. Zadaci i zalihe ostaju u bazi do zasebnog odobrenog održavanja, bez obećanja automatske arhive.
+
+## Izdanje
+
+Web 0.5.0 uključuje novu tablu, srpsku latinicu i Kragujevac u prijavi, kanalima, profilu i planu. Bazna konzola takođe podržava Kragujevac i dodatne obavezne dokaze operatera/lokacije/veze. Android izvorni kod dobija Kragujevac i početni centar mape; ranije objavljeni APK 0.1.0 nije zamenjen tim izmenama. Za novu funkcionalnost koristi web/PWA. Dokumenti stručnih uputstava i istorijski izveštaji ostaju u izvornom regionalnom obliku i sa izvornim referencama.
+</pre></main></html>

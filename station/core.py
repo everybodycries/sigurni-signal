@@ -19,7 +19,7 @@ import time
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
-CITIES = {'Zagreb': 'Europe/Zagreb', 'Sarajevo': 'Europe/Sarajevo', 'Beograd': 'Europe/Belgrade'}
+CITIES = {'Kragujevac': 'Europe/Belgrade', 'Zagreb': 'Europe/Zagreb', 'Sarajevo': 'Europe/Sarajevo', 'Beograd': 'Europe/Belgrade'}
 GATES = {
     'legal_HR': 'Hrvatska: važeća pravila i dopušten prijenos',
     'legal_BA': 'BiH: važeća pravila i dopušten prijenos',
@@ -30,6 +30,9 @@ GATES = {
     'site_HR': 'Zagreb: odobrena lokacija i sigurna instalacija',
     'site_BA': 'Sarajevo: odobrena lokacija i sigurna instalacija',
     'site_RS': 'Beograd: odobrena lokacija i sigurna instalacija',
+    'operators_KG': 'Kragujevac: dva osposobljena operatera i raspored',
+    'site_KG': 'Kragujevac: odobrena lokacija i bezbedna instalacija',
+    'link_KG_ZG': 'Kragujevac–Zagreb: terenski dokaz veze',
     'link_ZG_SA': 'Zagreb–Sarajevo: terenski dokaz veze',
     'link_ZG_BG': 'Zagreb–Beograd: terenski dokaz veze',
     'link_SA_BG': 'Sarajevo–Beograd: terenski dokaz veze',
@@ -68,7 +71,7 @@ def required_wh(daily_wh,days=3,efficiency=.85,temperature_factor=.9):
         raise ValueError('Potrošnja/dani >0; učinkovitost i temperaturni faktor između 0 i 1.')
     return daily_wh*days*1.3/(efficiency*temperature_factor)
 
-def next_window(now=None,city='Zagreb'):
+def next_window(now=None,city='Kragujevac'):
     now=int(time.time() if now is None else now)
     if city not in CITIES: raise ValueError('Nepoznat grad.')
     zone=ZoneInfo(CITIES[city]); local=datetime.fromtimestamp(now,zone)
@@ -287,7 +290,7 @@ class Store:
     def settings(self):
         with self.lock:
             d={r['key']:r['value'] for r in self.db.execute('SELECT * FROM settings')}
-            return {'city':d.get('city','Zagreb'),'radio_enabled':d.get('radio_enabled','false')=='true','local_profile_reference':d.get('local_profile_reference','')}
+            return {'city':d.get('city','Kragujevac'),'radio_enabled':d.get('radio_enabled','false')=='true','local_profile_reference':d.get('local_profile_reference','')}
     def configure(self,city,radio_enabled,local_profile_reference,actor):
         if city not in CITIES: raise ValueError('Nepoznat grad.')
         actor=clean(actor,'Operater',80)
