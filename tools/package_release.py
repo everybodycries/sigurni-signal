@@ -12,7 +12,7 @@ def public_file(p):
 def main():
  parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--staging');a=parser.parse_args()
  files=[p for p in sorted(ROOT.rglob('*'))if p.is_file() and public_file(p)]
- archive=ROOT/'sigurni-signal-source-v0.2.zip'
+ archive=ROOT/'sigurni-signal-source-v0.2.1.zip'
  with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED,compresslevel=9)as z:
   for p in files:z.write(p,Path('sigurni-signal')/p.relative_to(ROOT))
  with zipfile.ZipFile(archive)as z:assert z.testzip() is None
@@ -21,7 +21,7 @@ def main():
  native=ROOT/'sigurni-signal-pilot.apk'
  checks={archive.name:hashlib.sha256(archive.read_bytes()).hexdigest()}
  if native.exists():checks[native.name]=hashlib.sha256(native.read_bytes()).hexdigest()
- (ROOT/'SHA256SUMS-v0.2').write_text(''.join(h+'  '+n+'\n' for n,h in checks.items()))
+ (ROOT/'SHA256SUMS-v0.2.1').write_text(''.join(h+'  '+n+'\n' for n,h in checks.items()))
  if a.staging:
   staging=Path(a.staging).resolve();staging.mkdir(parents=True,exist_ok=True)
   for p in files:
