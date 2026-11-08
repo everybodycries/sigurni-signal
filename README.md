@@ -3,10 +3,10 @@
 Nadogradnja uključuje instalabilni web s lokalnim planom, offline priručnikom, pripremom radijskih nacrta, šifriranim izvozom i pripremljenim Supabase povezivanjem. Web nije radioodašiljač. Android APK zadržava vlastiti provjereni pilot build i odvojenu verziju0.1.
 
 - Javni web: https://sigurni-signal.pages.dev (adresu potvrditi u docs/deployment-status.json nakon objave).
-- Android i izvorni release: https://github.com/everybodycries/sigurni-signal/releases/tag/v0.2.1-web
+- Android i izvorni release: https://github.com/everybodycries/sigurni-signal/releases/tag/v0.2.2-web
 - Lokalni javni web: `python3 -m gateway.server` → http://127.0.0.1:8088 ; eksplicitniLAN: `python3 -m gateway.server --lan`.
 - Privatna bazna konzola ostaje odvojena: upute ispod. Ne izlagati je javnom internetu.
-- Supabase je neobvezan; aktivno povezivanje čeka odabir postojećeg projekta. Nije stvoren plaćeni projekt niti promijenjenAuth.
+- Supabase je neobvezan i povezan s postojećim projektom AstroZeus, samo kroz novu tablicu `sigurni_signal_backups` s prisilnim RLS-om. Postojeće tablice i Auth postavke nisu mijenjane. Koristi postojeći aplikacijski račun; javna registracija nije uključena.
 
 Detalji: [web nadogradnja](docs/web-upgrade.md), [vlastita mreža](docs/offgrid-deployment.md), [Supabase](docs/supabase-setup.md). Sve mreže trebaju energiju; baterije/solar i radijski domet zahtijevaju stvarnu provjeru.
 

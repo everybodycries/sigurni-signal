@@ -1,6 +1,6 @@
 # Supabase povezivanje — opcionalna sigurnosna kopija
 
-Status prije integracije: pripremljena izvorna migracija i lokalno provjerena pravila; nije stvoren ili promijenjen hosted projekt ovim modulom. Organizacija AstroZeus je na besplatnom planu i već ima dva aktivna projekta. Ne pauzirati tuđi projekt, ne otvarati plaćeni projekt i ne mijenjati postojeće Auth postavke radi ove aplikacije bez zasebne odluke.
+Status 2026-11-08: korisnik je odobrio smještaj u postojeći projekt gdje ne smeta. Odabran je AstroZeus (`idgjvhuctieesmkyiwfl`). Dodana je samo tablica `public.sigurni_signal_backups` kroz migraciju. Postojeće tablice i Auth postavke nisu izmijenjene. Prisilni RLS, zabrana anon pristupa i vlasnički CRUD s odbijanjem drugog vlasnika potvrđeni su na hosted bazi u transakciji koja je rollbackana. Prijava stvarnim korisničkim vjerodajnicama nije testirana; koristi se postojeći aplikacijski račun, ne Supabase dashboard račun.
 
 ## Odabir projekta i postavljanje
 

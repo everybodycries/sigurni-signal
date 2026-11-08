@@ -1,0 +1,43 @@
+{
+  "checked_at_utc": "2026-11-08T06:45:25.233741+00:00",
+  "web_version": "0.2.2",
+  "android_version": "0.1.0-pilot",
+  "public_url": "https://sigurni-signal.pages.dev/",
+  "source_repository": "https://github.com/everybodycries/sigurni-signal",
+  "release": "https://github.com/everybodycries/sigurni-signal/releases/tag/v0.2.2-web",
+  "cloudflare_static_deployment": "verified",
+  "github_release": "published prerelease, three assets; SHA256 matches local APK/source",
+  "production_checks": [
+    "HTTPS index and security headers",
+    "config version0.2.1 and supabase:null",
+    "source download hash",
+    "service worker controls page",
+    "offline reload",
+    "offline handbook both /guide.html and /guide"
+  ],
+  "automated_checks": {
+    "python_tests": 48,
+    "web_tests": 11,
+    "postgres_rls": "isolated PostgreSQL16 ownership and invalid-envelope tests passed"
+  },
+  "supabase": {
+    "status": "configured_existing_accounts",
+    "project": "AstroZeus",
+    "project_ref": "idgjvhuctieesmkyiwfl",
+    "changes": [
+      "new public.sigurni_signal_backups table and RLS policy"
+    ],
+    "existing_tables_changed": false,
+    "auth_settings_changed": false,
+    "hosted_tests": "owner CRUD and cross-owner denial passed; rolled back; anon has no table privilege",
+    "real_user_browser_login": "not tested"
+  },
+  "not_verified": [
+    "Physical radio delivery",
+    "cross-city radio links",
+    "regulatory approval",
+    "72h infrastructure autonomy",
+    "48h phone autonomy"
+  ],
+  "paid_plan_enabled": false
+}
