@@ -19,7 +19,7 @@ TYPES={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8',
        '.webp':'image/webp','.ico':'image/x-icon','.woff':'font/woff','.woff2':'font/woff2',
        '.pdf':'application/pdf','.csv':'text/csv; charset=utf-8','.geojson':'application/geo+json; charset=utf-8','.txt':'text/plain; charset=utf-8','.zip':'application/zip',
        '.apk':'application/vnd.android.package-archive'}
-CSP="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://*.supabase.co; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
+CSP="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self' https://*.supabase.co; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
 
 class GatewayServer(ThreadingHTTPServer):
     daemon_threads=True

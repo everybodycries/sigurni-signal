@@ -21,3 +21,5 @@ supabase/.temp/
 .env.*
 
 .playwright-cli/
+
+.dev.vars*

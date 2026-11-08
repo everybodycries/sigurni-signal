@@ -1,0 +1,87 @@
+CREATE SCHEMA
+CREATE ROLE
+CREATE ROLE
+CREATE TABLE
+CREATE FUNCTION
+CREATE FUNCTION
+GRANT
+GRANT
+GRANT
+CREATE SCHEMA
+REVOKE
+CREATE TABLE
+CREATE INDEX
+CREATE TABLE
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+INSERT 0 1
+CREATE INDEX
+CREATE INDEX
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+REVOKE
+REVOKE
+CREATE FUNCTION
+REVOKE
+GRANT
+COMMENT
+CREATE FUNCTION
+REVOKE
+GRANT
+COMMENT
+CREATE TABLE
+ALTER TABLE
+ALTER TABLE
+REVOKE
+COMMENT
+CREATE FUNCTION
+REVOKE
+GRANT
+COMMENT
+BEGIN
+INSERT 0 1
+SET
+psql:/Users/maki/Documents/Codex/2026-11-07/https-meshtastic-org/outputs/sigurni-signal.nosync/supabase/tests/community.sql:118: NOTICE:  Community encrypted backup roundtrip, owner-only access, strict envelope/size validation, upsert and deletion passed
+psql:/Users/maki/Documents/Codex/2026-11-07/https-meshtastic-org/outputs/sigurni-signal.nosync/supabase/tests/community.sql:118: NOTICE:  Invitations from demoted or inactive creators are rejected
+psql:/Users/maki/Documents/Codex/2026-11-07/https-meshtastic-org/outputs/sigurni-signal.nosync/supabase/tests/community.sql:118: NOTICE:  Strict payload validation, invite revocation, 20/min messages, idempotent retries, busy peer and 12/hour call quotas passed
+psql:/Users/maki/Documents/Codex/2026-11-07/https-meshtastic-org/outputs/sigurni-signal.nosync/supabase/tests/community.sql:118: NOTICE:  Community role, invitation, chat, DM, call, redaction, profile and revocation assertions passed
+DO
+RESET
+UPDATE 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+SET
+      retention_poll_version      
+----------------------------------
+ b331c34f0cc4ba1017cba85c51907372
+(1 row)
+
+RESET
+psql:/Users/maki/Documents/Codex/2026-11-07/https-meshtastic-org/outputs/sigurni-signal.nosync/supabase/tests/community.sql:138: NOTICE:  Snapshot delta payloads and active-app hourly retention passed
+DO
+DO
+ROLLBACK

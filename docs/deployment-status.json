@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-11-08T10:14:25.511527+00:00",
+  "checked_at_utc": "2026-11-08T10:18:11.753407+00:00",
   "web_version": "0.3.0",
   "android_version": "0.1.0-pilot",
   "public_url": "https://sigurni-signal.pages.dev/",
@@ -10,7 +10,13 @@
   "production_checks": [
     "HTTPS and public assets",
     "live Supabase policy catalog",
-    "hosted owner/cross-owner rollback tests"
+    "hosted owner/cross-owner rollback tests",
+    "Public config0.3.0 and source ZIP hash",
+    "GitHub release is public prerelease and source digest matches",
+    "All eight routes display expected heading",
+    "390px routes without overflow;320px all menu entries visible;1440px no overflow",
+    "Network-offline app reload and separate handbook navigation",
+    "Supabase Auth health200;anonymous REST read401"
   ],
   "automated_checks": {
     "python_tests": 48,
@@ -36,5 +42,6 @@
     "72h infrastructure autonomy",
     "48h phone autonomy"
   ],
-  "paid_plan_enabled": false
+  "paid_plan_enabled": false,
+  "deployment_url": "https://eaa1eefc.sigurni-signal.pages.dev/"
 }

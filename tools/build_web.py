@@ -33,7 +33,7 @@ def main():
  if (ROOT/'sigurni-signal-pilot.apk').exists():config['nativeSha256']=hashlib.sha256((ROOT/'sigurni-signal-pilot.apk').read_bytes()).hexdigest()
  elif not re.fullmatch(r'[a-f0-9]{64}',config.get('nativeSha256','')):raise ValueError('Supply verified APK or configured nativeSha256')
  (WEB/'config.json').write_text(json.dumps(config,ensure_ascii=False,indent=2)+'\n')
- cache_files=['/','/index.html','/style.css','/app.mjs','/config.json','/manifest.webmanifest','/guide.html','/guide.css','/data/guides.json','/downloads/prirucnik-offline.html','/downloads/offgrid-guide.html','/assets/icon.svg','/assets/icon-192.png','/assets/icon-512.png']+[f'/lib/{p.name}' for p in sorted((WEB/'lib').glob('*.mjs'))]
+ cache_files=['/','/index.html','/style.css','/app.mjs','/community.mjs','/config.json','/manifest.webmanifest','/guide.html','/guide.css','/data/guides.json','/downloads/prirucnik-offline.html','/downloads/offgrid-guide.html','/assets/icon.svg','/assets/icon-192.png','/assets/icon-512.png']+[f'/lib/{p.name}' for p in sorted((WEB/'lib').glob('*.mjs'))]
  digest=hashlib.sha256(b'worker-v2-normalized-pages'+b''.join((WEB/f.lstrip('/')).read_bytes() for f in cache_files if f!='/')).hexdigest()[:14]
  sw="""/* Generated app-shell-only cache. Auth/backups and large downloads never cached. */
 const CACHE=__CACHE__;
@@ -52,8 +52,8 @@ event.respondWith((async()=>{const cache=await caches.open(CACHE);const key=ALIA
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
   X-Frame-Options: DENY
-  Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self' https://*.supabase.co; worker-src 'self'; manifest-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'
+  Permissions-Policy: camera=(), microphone=(self), geolocation=()
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self' https://*.supabase.co; worker-src 'self'; manifest-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'
 /sw.js
   Cache-Control: no-cache
 /config.json

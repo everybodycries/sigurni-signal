@@ -3,7 +3,7 @@
 Nadogradnja uključuje instalabilni web s lokalnim planom, offline priručnikom, pripremom radijskih nacrta, šifriranim izvozom i pripremljenim Supabase povezivanjem. Web nije radioodašiljač. Android APK zadržava vlastiti provjereni pilot build i odvojenu verziju0.1.
 
 - Javni web: https://sigurni-signal.pages.dev (adresu potvrditi u docs/deployment-status.json nakon objave).
-- Android i izvorni release: https://github.com/everybodycries/sigurni-signal/releases/tag/v0.3.0-web
+- Android i izvorni release: https://github.com/everybodycries/sigurni-signal/releases/tag/v0.4.0-web
 - Lokalni javni web: `python3 -m gateway.server` → http://127.0.0.1:8088 ; eksplicitniLAN: `python3 -m gateway.server --lan`.
 - Privatna bazna konzola ostaje odvojena: upute ispod. Ne izlagati je javnom internetu.
 - Supabase je neobvezan i povezan s postojećim projektom AstroZeus, samo kroz novu tablicu `sigurni_signal_backups` s prisilnim RLS-om. Postojeće tablice i Auth postavke nisu mijenjane. Koristi postojeći aplikacijski račun; javna registracija nije uključena.
@@ -67,3 +67,9 @@ GPL-3.0-only za novi kod; upstream licence i atribucije su u LICENSE, THIRD_PART
 ## Jasne upute i provjera 0.3.0
 
 Otvorite https://sigurni-signal.pages.dev/#help za pet koraka uporabe i pregled svih mogućnosti. Web priprema nacrte; dvije odvojene radnje kopiranja prilagođene su Android pilotu (novu oznaku dodaje klijent) i službenom Meshtasticu (kopira cijeli tekst s oznakom). Mobilni izbornik pokazuje sve odjeljke bez vodoravnog skrolanja. Detaljna provjera: `docs/audit-2026-11-08.md`.
+
+## Zajednica 0.4 — admin, chat i pozivi
+
+https://sigurni-signal.pages.dev/#community : grupni/privatni chat, WebRTC glasovni pozivi i prijava osobnim ključem preko pozivnice. Admin panel na #admin upravlja članovima, pozivnicama, obavijestima i grupnom moderacijom; ovlasti su provjerene na poslužitelju. Isti osobni ključ omogućuje novu šifriranu cloud kopiju plana bez e-mail prijave. Prvi ključ predaje se lokalno izvan javnog paketa.
+
+TURN je pripremljen kroz Pages Function /api/turn; aktivacija traži korisnikovu besplatnu Metered registraciju i dvije server tajne. Bez konfiguracije radi samo izravni STUN način gdje mreža dopušta. Nema PSTN poziva, plaćene rezerve, snimanja zvuka ili glasovnog prijenosa preko LoRa. Radijske i energetske provjere ostaju odvojene. Detaljne upute i ograničenja: `docs/admin-and-calls.md`.
