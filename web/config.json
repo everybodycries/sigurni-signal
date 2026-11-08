@@ -3,9 +3,9 @@
   "nativeVersion": "0.1.0-pilot",
   "supabase": null,
   "downloads": {
-    "apk": "https://github.com/527bcyxhtg-web/sigurni-signal/releases/download/v0.2.0-web/sigurni-signal-pilot.apk",
+    "apk": "https://github.com/everybodycries/sigurni-signal/releases/download/v0.2.0-web/sigurni-signal-pilot.apk",
     "source": "/downloads/source.zip",
-    "release": "https://github.com/527bcyxhtg-web/sigurni-signal/releases/tag/v0.2.0-web"
+    "release": "https://github.com/everybodycries/sigurni-signal/releases/tag/v0.2.0-web"
   },
   "nativeSha256": "271f7b1f51ded1b4c63967f53a92e67d844fa677703cf6de3e9014d2e11e0406",
   "cloudStatus": "awaiting_project_selection"

@@ -3,7 +3,7 @@
 Nadogradnja uključuje instalabilni web s lokalnim planom, offline priručnikom, pripremom radijskih nacrta, šifriranim izvozom i pripremljenim Supabase povezivanjem. Web nije radioodašiljač. Android APK zadržava vlastiti provjereni pilot build i odvojenu verziju0.1.
 
 - Javni web: https://sigurni-signal.pages.dev (adresu potvrditi u docs/deployment-status.json nakon objave).
-- Android i izvorni release: https://github.com/527bcyxhtg-web/sigurni-signal/releases/tag/v0.2.0-web
+- Android i izvorni release: https://github.com/everybodycries/sigurni-signal/releases/tag/v0.2.0-web
 - Lokalni javni web: `python3 -m gateway.server` → http://127.0.0.1:8088 ; eksplicitniLAN: `python3 -m gateway.server --lan`.
 - Privatna bazna konzola ostaje odvojena: upute ispod. Ne izlagati je javnom internetu.
 - Supabase je neobvezan; aktivno povezivanje čeka odabir postojećeg projekta. Nije stvoren plaćeni projekt niti promijenjenAuth.
