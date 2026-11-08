@@ -1,0 +1,68 @@
+<!doctype html><html lang="hr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vlastita lokalna mreža</title><link rel="stylesheet" href="/guide.css"><main><h1>Vlastita lokalna mreža</h1><pre># Vlastita lokalna mreža za prekid javnog interneta
+
+Sigurni Signal ima javni web za pripremu i odvojeni lokalni sadržaj. Privatna radijska komunikacija ostaje u Android/Meshtastic klijentima i baznoj konzoli. Statički gateway ne upravlja radiom i ne izlaže bazu.
+
+## Što može raditi bez javnog interneta
+
+- Unaprijed instalirana i provjerena PWA može prikazivati spremljeni sadržaj i svoje lokalne podatke na telefonu. Dostupnost ovisi o stvarno spremljenom paketu i ponašanju preglednika; provjeriti prije događaja.
+- Računalo ili Raspberry Pi može posluživati kopiju javnog weba uređajima na izoliranoj IP mreži.
+- Android/meshtastic radio sloj može komunicirati preko Bluetootha i LoRa bez Wi‑Fija. LoRa nije širokopojasna zamjena za pregledavanje weba, video ili preuzimanje APK-a.
+- Supabase i javna domena trebaju javni internet. Njihov prekid ne smije zaustaviti lokalni radio, spremljene upute ili lokalne planove. Sinkronizacija ostaje neobvezna.
+
+Takva mreža je samostalna lokalna mreža, a ne elektronička komunikacija bez energije. Telefoni, radiji, usmjerivač i poslužitelj trebaju baterije, a solar može produljiti autonomiju. Ciljevi72h infrastrukture i48h telefona nisu izmjereni samo zato što se softver pokreće.
+
+## Minimalni lokalni komplet
+
+Za lokalno posluživanje potreban je održavan router ili OpenWrt uređaj, računalo/Raspberry Pi s javnim web paketom i odgovarajuće baterijsko napajanje. Ethernet je moguć bez Wi‑Fija za kompatibilne uređaje; telefoni za Ethernet mogu trebati dodatni adapter. Lokalni Wi‑Fi je mogući pristup toj izoliranoj mreži, ne zahtijeva operaterski internet. Za samu radijsku komunikaciju i dalje se koristi osobni Bluetooth/LoRa uređaj.
+
+Dodatni OpenWrt mesh čvorovi mogu se razmotriti tek nakon provjere podrške točnog hardvera, radijskih propisa i terenske trase. Instalacija gatewaya ne konfigurira router, mesh, antene ili napajanje. Nije pretpostavljena pokrivenost između gradova. Sustav bez WAN priključka i dalje treba unaprijed dogovorenu lokalnu adresaciju i pristup korisnika.
+
+## Pokretanje gatewaya
+
+Iz korijena projekta, samo na istom računalu:
+
+```sh
+python3 -m gateway.server
+```
+
+Otvorite http://127.0.0.1:8088. Zadani javni direktorij je `web/`. Za eksplicitni lokalni LAN:
+
+```sh
+python3 -m gateway.server --lan --port 8088
+```
+
+Ta naredba sluša na svim mrežnim sučeljima. Korisnici otvaraju stvarnu lokalnu IP adresu tog računala, primjerice `http://10.42.0.2:8088/` ako je ta adresa prethodno dodijeljena. Primjer nije automatski postavljena adresa. Provjerite vatrozid i mrežu: nema automatskog WAN prosljeđivanja portova ili javnog tunela. Dokumentirajte IP na papiru i ispitajte s drugog uređaja.
+
+Opcionalno `--root /put/do/javnog-paketa` poslužuje pripremljen javni direktorij. Korijen projekta ili nadređeni filesystem direktorij odbijaju se. Gateway ne prikazuje popise direktorija; samo dopuštene statičke tipove datoteka. Skriveni direktoriji, privatne aplikacijske mape, API putanje, baze i putanje izvan javnog korijena ne poslužuju se. Gateway prihvaća samo GET i HEAD. Nema administracije stanice, API proxyja, automatskog prijenosa ili pisanja podataka na poslužitelj.
+
+Zaustavljanje: Ctrl+C. Javnom paketu dodajte samo sadržaj koji smije vidjeti svaki član lokalne mreže. Nikada ne kopirajte SQLite baze, privatne ključeve, osobne izvještaje ili konfiguracije s tajnim ključevima u `web/` ili njegovu mapu za preuzimanja. Supabase service-role/secret ključ nije javna konfiguracija.
+
+## HTTPS, PWA i lokalni HTTP
+
+Service worker za offline PWA zahtijeva siguran kontekst; HTTPS i razvojni localhost mogu ga podržati. Obični HTTP na drugoj LAN IP adresi obično ga ne omogućuje. Zato PWA-u instalirajte i testirajte preko javnog HTTPS weba prije prekida. Lokalni HTTP gateway pruža sadržaj dostupan unutar mreže, ali ne jamči novu PWA instalaciju ili Web Crypto/cloud funkcije. Uključivanje posebnih nesigurnih zastavica preglednika nije dio postupka. [MDN: Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
+
+Spremište i cache vezani su uz origin: javna HTTPS domena, localhost i LAN IP imaju zasebne lokalne podatke. Gateway ne prenosi automatski osobni plan između njih. Po potrebi koristite izričitu provjerenu funkciju izvoza/uvoza aplikacije; čuvajte zaporku šifrirane kopije. Niti HTTPS domena niti pripremljena PWA ne jamče da preglednik nikad neće ukloniti podatke pod pritiskom prostora.
+
+## Lokalni naziv i DNS
+
+Javna besplatna poddomena pripada javnom hostingu i ovisi o vanjskom DNS-u. Za izolirani LAN može se konfigurirati vlastiti lokalni DNS. Naziv poput `signal.home.arpa` namijenjen je samo lokalnoj mreži kada router/DNS administrator tako postavi zapis; nije kupljena domena i nije javno registriran naziv. IP pristup treba ostati zapisan kao rezerva. [RFC8375: home.arpa](https://www.rfc-editor.org/rfc/rfc8375)
+
+Promjena DNS-a ili naziv na routeru ne stvara HTTPS certifikat, udaljenu vezu ili napajanje. Ne preusmjeravati javne aplikacijske domene na lokalni server bez razumijevanja certifikata i origin-podataka.
+
+## Vježba bez WAN-a i struje
+
+1. Prije događaja provjeriti sadržaj web paketa, PWA cache, offline vodiče i instalaciju radijskih klijenata.
+2. Odspojiti WAN na testnoj opremi; provjeriti da se lokalni gateway otvara s drugog uređaja i da nema pretpostavke javnog DNS-a.
+3. Na telefonu bez dostupne lokalne mreže provjeriti prethodno spremljenu PWA i zasebnu BLE/LoRa komunikaciju.
+4. Odspojiti mrežno napajanje i doprinos solara prema planu testa, zapisati stvarnu potrošnju, temperaturu, radni profil i kvarove. Solar nije zamjena za dokaz72h na bateriji.
+5. Provjeriti kvar gatewaya: radio i prethodno spremljene upute moraju imati odvojeni postupak. Ne izlaziti iz skloništa radi signala.
+6. Upisati stvarne rezultate u privatnu kopiju terenskih obrazaca. Do mjerenja nema tvrdnje o ostvarenom dometu, autonomiji, EMP otpornosti ili zajamčenoj dostupnosti.
+
+## Softverska provjera
+
+```sh
+python3 -m unittest discover -s tests -p test_gateway.py -v
+```
+
+Testovi koriste lokalni HTTP i privremene direktorije. Provjeravaju statičko posluživanje, HEAD, MIME, blokadu pisanja, symlink/traversal zaštitu i neizlaganje API-ja. Nisu terenski mrežni, radijski ili baterijski testovi.
+</pre></main></html>

@@ -1,0 +1,3 @@
+# Licenses and provenance
+
+Newcode:GPL-3.0-only. OfficialMeshtastic protobufs pinned85f3f4357946a52daa5310285476d2dffb137c7b, upstreamGPLv3; fullGPLtext copied from publishedMeshtasticPythonSDK2.7.11license (sameGPLversion). Kotlin/AndroidX/ComposeApache2.0; MapLibreNativeBSD2-Clause; protobufJava-liteBSD3-Clause; JUnitEPL1.0(testonly); PythonstdlibPSF. OptionalPythonSDK2.7.11GPLv3 installed separately. No map tiles or institutional endorsements included. Upstream copyright headers preserved in source/generatedcode. Preserve licenses/notices and check data redistribution rights before publishing. New handbook text is project-authored paraphrase, source/review status incontent/.

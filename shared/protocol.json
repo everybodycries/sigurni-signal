@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "name": "Sigurni Signal / Meshtastic text interoperability",
+  "max_utf8_bytes": 200,
+  "message_format": "[A7K42P9Q] text",
+  "id_pattern": "[A-Z2-9]{8}",
+  "receipt_format": "POTVRDA A7K42P9Q",
+  "normal_ttl_seconds": 86400,
+  "help_ttl_seconds": 3600,
+  "max_attempts": 3,
+  "retry_delays_seconds": [
+    120,
+    600
+  ],
+  "minimum_send_interval_seconds": 30,
+  "confirmation_semantics": "Radio ACK is never human receipt. Text receipts are unverified claims until manually validated.",
+  "wire_fixtures": [
+    {
+      "id": "A7K42P9Q",
+      "body": "DOBRO SAM",
+      "wire": "[A7K42P9Q] DOBRO SAM",
+      "bytes": 20
+    },
+    {
+      "id": "BBBBBBBB",
+      "body": "Trebam pomoć",
+      "wire": "[BBBBBBBB] Trebam pomoć",
+      "bytes": 24
+    }
+  ]
+}

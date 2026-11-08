@@ -1,0 +1,20 @@
+test_inter_empty (test_evaluate_field.FieldTests.test_inter_empty) ... ok
+test_inter_fail (test_evaluate_field.FieldTests.test_inter_fail) ... ok
+test_inter_pass (test_evaluate_field.FieldTests.test_inter_pass) ... ok
+test_invalid_day (test_evaluate_field.FieldTests.test_invalid_day) ... ok
+test_local_clock (test_evaluate_field.FieldTests.test_local_clock) ... ok
+test_local_duplicate (test_evaluate_field.FieldTests.test_local_duplicate) ... ok
+test_local_fail (test_evaluate_field.FieldTests.test_local_fail) ... ok
+test_local_pass (test_evaluate_field.FieldTests.test_local_pass) ... ok
+test_local_small (test_evaluate_field.FieldTests.test_local_small) ... ok
+test_mixed_dates (test_evaluate_field.FieldTests.test_mixed_dates) ... ok
+test_nonconsecutive_days (test_evaluate_field.FieldTests.test_nonconsecutive_days) ... ok
+test_unscheduled (test_evaluate_field.FieldTests.test_unscheduled) ... ok
+test_unverified (test_evaluate_field.FieldTests.test_unverified) ... ok
+test_invalid_inputs (test_power_calculator.PowerTests.test_invalid_inputs) ... ok
+test_losses_and_reserve (test_power_calculator.PowerTests.test_losses_and_reserve) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.003s
+
+OK

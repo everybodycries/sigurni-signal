@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "algorithm": "SHA-256",
+  "signature_status": "unsigned_not_institutional_approval",
+  "files": {
+    "sources.json": "766bbec5bfc727199ba250c0e5f06c5dba1ed8a5196906d2b46d50dd2b98b442",
+    "guides.json": "4b0f69f4f1ccfbbb3d6bd9bbddc3fc997906c20cc6f92887c13f66f495c3e513",
+    "maps/pilot-points.geojson": "9ecdafe2ce4c617b6be7420a06e6918223f34a6f429bfe957ee733c49d03be4d",
+    "maps/manifest.json": "e2c7b5dffa734b0fecfc40f67754763d62bad0dec328c94e1d7c1e6840309b0b"
+  }
+}

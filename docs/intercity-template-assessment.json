@@ -1,0 +1,302 @@
+{
+  "warning": "Evaluate supplied measurements only; not proof of authentic or lawful RF operation.",
+  "groups": [
+    {
+      "pair": "Sarajevo-Beograd",
+      "day_index": "1",
+      "window_local": "08:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Sarajevo-Beograd",
+      "day_index": "1",
+      "window_local": "14:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Sarajevo-Beograd",
+      "day_index": "1",
+      "window_local": "20:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Sarajevo-Beograd",
+      "day_index": "2",
+      "window_local": "08:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Sarajevo-Beograd",
+      "day_index": "2",
+      "window_local": "14:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Sarajevo-Beograd",
+      "day_index": "2",
+      "window_local": "20:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Sarajevo-Beograd",
+      "day_index": "3",
+      "window_local": "08:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Sarajevo-Beograd",
+      "day_index": "3",
+      "window_local": "14:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Sarajevo-Beograd",
+      "day_index": "3",
+      "window_local": "20:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Beograd",
+      "day_index": "1",
+      "window_local": "08:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Beograd",
+      "day_index": "1",
+      "window_local": "14:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Beograd",
+      "day_index": "1",
+      "window_local": "20:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Beograd",
+      "day_index": "2",
+      "window_local": "08:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Beograd",
+      "day_index": "2",
+      "window_local": "14:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Beograd",
+      "day_index": "2",
+      "window_local": "20:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Beograd",
+      "day_index": "3",
+      "window_local": "08:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Beograd",
+      "day_index": "3",
+      "window_local": "14:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Beograd",
+      "day_index": "3",
+      "window_local": "20:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Sarajevo",
+      "day_index": "1",
+      "window_local": "08:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Sarajevo",
+      "day_index": "1",
+      "window_local": "14:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Sarajevo",
+      "day_index": "1",
+      "window_local": "20:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Sarajevo",
+      "day_index": "2",
+      "window_local": "08:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Sarajevo",
+      "day_index": "2",
+      "window_local": "14:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Sarajevo",
+      "day_index": "2",
+      "window_local": "20:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Sarajevo",
+      "day_index": "3",
+      "window_local": "08:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Sarajevo",
+      "day_index": "3",
+      "window_local": "14:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "pair": "Zagreb-Sarajevo",
+      "day_index": "3",
+      "window_local": "20:00",
+      "offered": 0,
+      "accepted": 0,
+      "timely_base_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    }
+  ]
+}

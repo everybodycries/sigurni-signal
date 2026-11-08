@@ -1,0 +1,185 @@
+{
+  "warning": "Evaluate supplied measurements only; not proof of authentic or lawful RF operation.",
+  "groups": [
+    {
+      "city": "Beograd",
+      "route_id": "direct",
+      "direction": "forward",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Beograd",
+      "route_id": "direct",
+      "direction": "reverse",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Beograd",
+      "route_id": "relay",
+      "direction": "forward",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Beograd",
+      "route_id": "relay",
+      "direction": "reverse",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Beograd",
+      "route_id": "shelter",
+      "direction": "forward",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Beograd",
+      "route_id": "shelter",
+      "direction": "reverse",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Sarajevo",
+      "route_id": "direct",
+      "direction": "forward",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Sarajevo",
+      "route_id": "direct",
+      "direction": "reverse",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Sarajevo",
+      "route_id": "relay",
+      "direction": "forward",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Sarajevo",
+      "route_id": "relay",
+      "direction": "reverse",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Sarajevo",
+      "route_id": "shelter",
+      "direction": "forward",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Sarajevo",
+      "route_id": "shelter",
+      "direction": "reverse",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Zagreb",
+      "route_id": "direct",
+      "direction": "forward",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Zagreb",
+      "route_id": "direct",
+      "direction": "reverse",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Zagreb",
+      "route_id": "relay",
+      "direction": "forward",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Zagreb",
+      "route_id": "relay",
+      "direction": "reverse",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Zagreb",
+      "route_id": "shelter",
+      "direction": "forward",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    },
+    {
+      "city": "Zagreb",
+      "route_id": "shelter",
+      "direction": "reverse",
+      "attempts": 0,
+      "timely_receipts": 0,
+      "fraction": null,
+      "assessment": "unverified",
+      "errors": []
+    }
+  ]
+}

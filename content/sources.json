@@ -1,0 +1,69 @@
+{
+  "updated_at": "2026-11-08",
+  "status": "pending_local_expert_review",
+  "guides": [
+    {
+      "id": "radiation-shelter",
+      "sources": [
+        {
+          "title": "CDC — Preparing for a Radiation Emergency",
+          "url": "https://www.cdc.gov/radiation-emergencies/safety/"
+        },
+        {
+          "title": "Gov.hr — Nuklearne i radiološke nesreće",
+          "url": "https://www.gov.hr/hr/nuklearne-i-radioloske-nesrece/1180"
+        }
+      ],
+      "review_status": "pending_local_expert_review"
+    },
+    {
+      "id": "radiation-cleaning",
+      "sources": [
+        {
+          "title": "Gov.hr — Nuklearne i radiološke nesreće",
+          "url": "https://www.gov.hr/hr/nuklearne-i-radioloske-nesrece/1180"
+        },
+        {
+          "title": "CDC — Preparing for a Radiation Emergency",
+          "url": "https://www.cdc.gov/radiation-emergencies/safety/"
+        }
+      ],
+      "review_status": "pending_local_expert_review"
+    },
+    {
+      "id": "power-carbon-monoxide",
+      "sources": [
+        {
+          "title": "CDC — Avoiding Carbon Monoxide Poisoning",
+          "url": "https://www.cdc.gov/natural-disasters/psa-toolkit/avoiding-carbon-monoxide-poisoning.html"
+        }
+      ],
+      "review_status": "pending_local_expert_review"
+    },
+    {
+      "id": "family-preparation",
+      "sources": [
+        {
+          "title": "Meshtastic — Introduction",
+          "url": "https://meshtastic.org/docs/introduction/"
+        }
+      ],
+      "review_status": "project_procedure_pending_pilot"
+    },
+    {
+      "id": "message-confirmation",
+      "sources": [
+        {
+          "title": "Meshtastic — Messages & Channels",
+          "url": "https://meshtastic.org/docs/software/android/user/messages-and-channels/"
+        }
+      ],
+      "review_status": "project_procedure_pending_pilot"
+    },
+    {
+      "id": "public-radiogram",
+      "sources": [],
+      "review_status": "project_procedure_pending_regulatory_clearance"
+    }
+  ]
+}

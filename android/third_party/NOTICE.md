@@ -1,0 +1,1 @@
+Meshtastic protobuf source commit85f3f4357946a52daa5310285476d2dffb137c7b. https://github.com/meshtastic/protobufs/tree/85f3f4357946a52daa5310285476d2dffb137c7b

@@ -1,0 +1,2 @@
+body{font:16px/1.65 system-ui,sans-serif;color:#182b2c;background:#f7f6f0;margin:0}main{max-width:820px;margin:40px auto;padding:40px;background:white}h1{border-top:4px solid #296654;padding-top:22px;font-size:30px}h2{margin-top:30px;color:#235b4d}p{overflow-wrap:anywhere}a{color:#235b4d}.review,.source{font-size:12px;color:#52615c}section{break-inside:avoid}@media print{body,main{background:white;margin:0;padding:0}main{max-width:none}h1{break-before:page}h1:first-child{break-before:auto}@page{size:A4;margin:18mm}}
+pre{white-space:pre-wrap;overflow-wrap:anywhere}

@@ -1,0 +1,19 @@
+✔ backup excludes drafts and preserves multiline agreement (1.347708ms)
+✔ cloud endpoints use authenticated owner-scoped requests, no cookies/cache (124.442958ms)
+✔ invalid cloud origin cannot receive a password (0.214125ms)
+✔ fresh planner starts empty and has no fabricated measurements (0.794792ms)
+✔ wire limits include ID and Croatian characters (0.979459ms)
+✔ imports are bounded and cannot contain unvalidated nested values (0.22425ms)
+✔ power calculator accounts for losses, zero and NaN (0.129916ms)
+✔ watch windows do not imply active operators (29.081625ms)
+✔ backup encrypts, roundtrips, rejects wrong phrase and tampering (475.553083ms)
+✔ envelope bounds defend KDF/size abuse and short phrases (80.867625ms)
+✔ next watch handles DST offset on the following day (0.531042ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 668.445541

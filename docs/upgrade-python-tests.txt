@@ -1,0 +1,53 @@
+test_blank_control_and_invalid_destination_rejected (test_core.CoreTests.test_blank_control_and_invalid_destination_rejected) ... ok
+test_clock_rollback_pauses_automatic_sending (test_core.CoreTests.test_clock_rollback_pauses_automatic_sending) ... ok
+test_closing_help_stops_sending (test_core.CoreTests.test_closing_help_stops_sending) ... ok
+test_confirmation_stops_retries_but_closure_is_explicit (test_core.CoreTests.test_confirmation_stops_retries_but_closure_is_explicit) ... ok
+test_confirmed_messages_do_not_fill_queue (test_core.CoreTests.test_confirmed_messages_do_not_fill_queue) ... ok
+test_evidence_is_required_for_each_gate_and_must_be_current (test_core.CoreTests.test_evidence_is_required_for_each_gate_and_must_be_current) ... ok
+test_help_expiry_does_not_resolve_incident (test_core.CoreTests.test_help_expiry_does_not_resolve_incident) ... ok
+test_hf_approval_blocked_without_evidence (test_core.CoreTests.test_hf_approval_blocked_without_evidence) ... ok
+test_incoming_duplicate_uses_sender_and_packet_id (test_core.CoreTests.test_incoming_duplicate_uses_sender_and_packet_id) ... ok
+test_no_retry_before_backoff (test_core.CoreTests.test_no_retry_before_backoff) ... ok
+test_old_open_help_and_full_audit_export (test_core.CoreTests.test_old_open_help_and_full_audit_export) ... ok
+test_plain_parse_never_creates_verified_official_status (test_core.CoreTests.test_plain_parse_never_creates_verified_official_status) ... ok
+test_power_losses_and_reserve (test_core.CoreTests.test_power_losses_and_reserve) ... ok
+test_public_radiogram_requires_exact_consent (test_core.CoreTests.test_public_radiogram_requires_exact_consent) ... ok
+test_radio_ack_is_not_human_confirmation (test_core.CoreTests.test_radio_ack_is_not_human_confirmation) ... ok
+test_radiogram_transitions_order_and_audit (test_core.CoreTests.test_radiogram_transitions_order_and_audit) ... ok
+test_restart_does_not_resend_uncertain_job (test_core.CoreTests.test_restart_does_not_resend_uncertain_job) ... ok
+test_same_wire_id_deduplicates_retries_and_flags_conflicts (test_core.CoreTests.test_same_wire_id_deduplicates_retries_and_flags_conflicts) ... ok
+test_schedule_local_and_dst (test_core.CoreTests.test_schedule_local_and_dst) ... ok
+test_shared_wire_fixtures (test_core.CoreTests.test_shared_wire_fixtures) ... ok
+test_three_attempts_and_backoff (test_core.CoreTests.test_three_attempts_and_backoff) ... ok
+test_unicode_boundary_counts_header (test_core.CoreTests.test_unicode_boundary_counts_header) ... ok
+test_unverified_receipt_does_not_confirm (test_core.CoreTests.test_unverified_receipt_does_not_confirm) ... ok
+test_busy_port_preserves_bind_error (test_gateway.GatewayTests.test_busy_port_preserves_bind_error) ... ok
+test_hidden_and_private_files_are_blocked (test_gateway.GatewayTests.test_hidden_and_private_files_are_blocked) ... ok
+test_index_and_head (test_gateway.GatewayTests.test_index_and_head) ... ok
+test_no_cloud_or_radio_proxy (test_gateway.GatewayTests.test_no_cloud_or_radio_proxy) ... ok
+test_no_directory_listing (test_gateway.GatewayTests.test_no_directory_listing) ... ok
+test_only_get_and_head (test_gateway.GatewayTests.test_only_get_and_head) ... ok
+test_root_cannot_be_project_or_filesystem_ancestor (test_gateway.GatewayTests.test_root_cannot_be_project_or_filesystem_ancestor) ... ok
+test_security_headers (test_gateway.GatewayTests.test_security_headers) ... ok
+test_static_mime_types (test_gateway.GatewayTests.test_static_mime_types) ... ok
+test_traversal_and_symlink_are_blocked (test_gateway.GatewayTests.test_traversal_and_symlink_are_blocked) ... ok
+test_content_is_served_offline (test_http.HttpTests.test_content_is_served_offline) ... ok
+test_create_restart_and_export (test_http.HttpTests.test_create_restart_and_export) ... ok
+test_foreign_origin_rejected (test_http.HttpTests.test_foreign_origin_rejected) ... ok
+test_html_csp_and_no_external_scripts (test_http.HttpTests.test_html_csp_and_no_external_scripts) ... ok
+test_json_type_error_is_bad_request (test_http.HttpTests.test_json_type_error_is_bad_request) ... ok
+test_loopback_only (test_http.HttpTests.test_loopback_only) ... ok
+test_missing_token_rejected (test_http.HttpTests.test_missing_token_rejected) ... ok
+test_no_path_traversal (test_http.HttpTests.test_no_path_traversal) ... ok
+test_no_radio_no_fake_success (test_http.HttpTests.test_no_radio_no_fake_success) ... ok
+test_public_consent_and_hf_gate (test_http.HttpTests.test_public_consent_and_hf_gate) ... ok
+test_rebinding_host_rejected (test_http.HttpTests.test_rebinding_host_rejected) ... ok
+test_default_keys_plaintext_and_cloud_are_blocked (test_radio.RadioTests.test_default_keys_plaintext_and_cloud_are_blocked) ... ok
+test_invalid_radio_packet_and_external_interface_dont_confirm (test_radio.RadioTests.test_invalid_radio_packet_and_external_interface_dont_confirm) ... ok
+test_actual_protobuf_profile (test_sdk_contract.SdkTests.test_actual_protobuf_profile) ... ok
+test_actual_sdk_signature (test_sdk_contract.SdkTests.test_actual_sdk_signature) ... ok
+
+----------------------------------------------------------------------
+Ran 48 tests in 11.267s
+
+OK

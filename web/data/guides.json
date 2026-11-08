@@ -1,0 +1,137 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-11-07",
+  "language": "hr",
+  "publication_status": "pilot_draft_not_authority_approved",
+  "guides": [
+    {
+      "id": "radiation-shelter",
+      "title": "Radiološki događaj: zaklanjanje",
+      "sections": [
+        {
+          "heading": "Prvo zaklanjanje",
+          "text": "Ako se dogodi radiološki događaj, sklonite se u zgradu i pratite nadležne službe. Podrum ili unutrašnjost zgrade udaljena od vanjskih zidova pruža bolju zaštitu od automobila. Ne izlazite samo radi radijskog signala."
+        },
+        {
+          "heading": "Aktualne upute imaju prednost",
+          "text": "Ostanak i evakuaciju uskladite s aktualnim službenim uputama. Aplikacija nema mjerenje zračenja i ne može odrediti siguran trenutak izlaska. Broj proteklih sati nije potvrda sigurnosti."
+        }
+      ],
+      "sources": [
+        {
+          "title": "CDC — Preparing for a Radiation Emergency",
+          "url": "https://www.cdc.gov/radiation-emergencies/safety/"
+        },
+        {
+          "title": "Gov.hr — Nuklearne i radiološke nesreće",
+          "url": "https://www.gov.hr/hr/nuklearne-i-radioloske-nesrece/1180"
+        }
+      ],
+      "review_status": "pending_local_expert_review"
+    },
+    {
+      "id": "radiation-cleaning",
+      "title": "Radiološki događaj: vanjska kontaminacija",
+      "sections": [
+        {
+          "heading": "Ako ste bili izloženi vanjskoj kontaminaciji",
+          "text": "U zaklonu pažljivo skinite vanjsku odjeću, odložite je u zatvorenu vreću i odmaknite od ljudi. Ako je moguće, operite se toplom vodom i sapunom. Izbjegavajte širenje prašine."
+        },
+        {
+          "heading": "Bez samostalnog određivanja terapije",
+          "text": "Aplikacija ne određuje dozu joda niti drugu terapiju. Za lijekove i daljnje postupke slijedite nadležne zdravstvene službe."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Gov.hr — Nuklearne i radiološke nesreće",
+          "url": "https://www.gov.hr/hr/nuklearne-i-radioloske-nesrece/1180"
+        },
+        {
+          "title": "CDC — Preparing for a Radiation Emergency",
+          "url": "https://www.cdc.gov/radiation-emergencies/safety/"
+        }
+      ],
+      "review_status": "pending_local_expert_review"
+    },
+    {
+      "id": "power-carbon-monoxide",
+      "title": "Nestanak struje i ugljikov monoksid",
+      "sections": [
+        {
+          "heading": "Generator pripada van",
+          "text": "Generator ne koristite u kući, podrumu, garaži ni drugom zatvorenom ili djelomično zatvorenom prostoru. CDC preporučuje rad vani, najmanje oko šest metara od vrata, prozora i ventilacijskih otvora. Ispuh usmjerite dalje od zgrade."
+        },
+        {
+          "heading": "Spriječite trovanje",
+          "text": "Ne koristite roštilj ili uređaj za vanjsku uporabu za grijanje zatvorenog prostora. Ugljikov monoksid nema boju ni miris. Prije događaja provjerite baterijski CO alarm i upute proizvođača."
+        }
+      ],
+      "sources": [
+        {
+          "title": "CDC — Avoiding Carbon Monoxide Poisoning",
+          "url": "https://www.cdc.gov/natural-disasters/psa-toolkit/avoiding-carbon-monoxide-poisoning.html"
+        }
+      ],
+      "review_status": "pending_local_expert_review"
+    },
+    {
+      "id": "family-preparation",
+      "title": "Obiteljski plan prije događaja",
+      "sections": [
+        {
+          "heading": "Dogovorite postupak",
+          "text": "Zapišite lokalne kontakte i bazu, termine javljanja, dogovorena mjesta i postupak bez potvrde. Pripremite vodu, hranu prikladnu za uvjete, potrebne osobne lijekove prema postojećim uputama liječnika, svjetiljku, baterije i papirnatu kopiju plana."
+        },
+        {
+          "heading": "Provjerite opremu unaprijed",
+          "text": "Testirajte osobni radio i napajanje iz prostora u kojem namjeravate boraviti. Provjerite da su dokumenti dostupni bez mreže. Ne pretpostavljajte da telefon sam može slati LoRa poruke."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Meshtastic — Introduction",
+          "url": "https://meshtastic.org/docs/introduction/"
+        }
+      ],
+      "review_status": "project_procedure_pending_pilot"
+    },
+    {
+      "id": "message-confirmation",
+      "title": "Poruke i potvrde primitka",
+      "sections": [
+        {
+          "heading": "Kratko i čitljivo",
+          "text": "Koristite [A7K42P9Q] tekst. Ukupna poruka mora stati u 200 UTF-8 bajtova, uključujući oznaku. Ručna potvrda je POTVRDA A7K42P9Q. Provjerite da potvrđuje očekivana osoba."
+        },
+        {
+          "heading": "Zahtjev ostaje otvoren",
+          "text": "Radijska potvrda ne potvrđuje da je čovjek pročitao tekst ili da pomoć dolazi. Istek ponovnog slanja ne zatvara zahtjev za pomoć. Vrijeme poruke uvijek provjerite."
+        }
+      ],
+      "sources": [
+        {
+          "title": "Meshtastic — Messages & Channels",
+          "url": "https://meshtastic.org/docs/software/android/user/messages-and-channels/"
+        }
+      ],
+      "review_status": "project_procedure_pending_pilot"
+    },
+    {
+      "id": "public-radiogram",
+      "title": "Međugradski javni radiogram",
+      "sections": [
+        {
+          "heading": "Zaseban pristanak",
+          "text": "Sastavite zaseban javni tekst za operatera, pregledajte ga i izričito potvrdite. Privatna poruka nije pristanak za javno emitiranje. Izmjena javnog teksta traži novi pregled i pristanak."
+        },
+        {
+          "heading": "Ograničena dostupnost",
+          "text": "Prijenos je ručan i smije se provoditi samo uz potrebne ovlasti i dokazanu vezu. Planirani prozori su 08:00, 14:00 i 20:00, po 30 minuta. Nema obećanja neprekidne službe niti dostave izvan prozora."
+        }
+      ],
+      "sources": [],
+      "review_status": "project_procedure_pending_regulatory_clearance"
+    }
+  ]
+}
