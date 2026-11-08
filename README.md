@@ -3,7 +3,7 @@
 Nadogradnja uključuje instalabilni web s lokalnim planom, offline priručnikom, pripremom radijskih nacrta, šifriranim izvozom i pripremljenim Supabase povezivanjem. Web nije radioodašiljač. Android APK zadržava vlastiti provjereni pilot build i odvojenu verziju0.1.
 
 - Javni web: https://sigurni-signal.pages.dev (adresu potvrditi u docs/deployment-status.json nakon objave).
-- Android i izvorni release: https://github.com/everybodycries/sigurni-signal/releases/tag/v0.2.2-web
+- Android i izvorni release: https://github.com/everybodycries/sigurni-signal/releases/tag/v0.3.0-web
 - Lokalni javni web: `python3 -m gateway.server` → http://127.0.0.1:8088 ; eksplicitniLAN: `python3 -m gateway.server --lan`.
 - Privatna bazna konzola ostaje odvojena: upute ispod. Ne izlagati je javnom internetu.
 - Supabase je neobvezan i povezan s postojećim projektom AstroZeus, samo kroz novu tablicu `sigurni_signal_backups` s prisilnim RLS-om. Postojeće tablice i Auth postavke nisu mijenjane. Koristi postojeći aplikacijski račun; javna registracija nije uključena.
@@ -63,3 +63,7 @@ SDK ugovorni testovi preskaču se ako opcionalni SDK nije instaliran. Za isporu�
 Bazna SQLite datoteka ima OS dozvole0600, nije punom enkripcijom baze zaštićena od prijavljenog korisnika. Za pilot koristiti zaštićen račun i šifrirani disk. Android šifrira sadržaj/nazive pomoću Keystorea; rutni identifikatori, vrijeme i stanja ostaju metapodaci. Android backup je isključen. Gubitak Keystore ključa može značiti gubitak čitljivosti lokalne povijesti.
 
 GPL-3.0-only za novi kod; upstream licence i atribucije su u LICENSE, THIRD_PARTY.md i Android izvornicima. Nema kupljene opreme ili aktiviranog radijskog pilota. Stvarne veze, rad na telefonima, dozvole i autonomija tek moraju biti dokazani.
+
+## Jasne upute i provjera 0.3.0
+
+Otvorite https://sigurni-signal.pages.dev/#help za pet koraka uporabe i pregled svih mogućnosti. Web priprema nacrte; dvije odvojene radnje kopiranja prilagođene su Android pilotu (novu oznaku dodaje klijent) i službenom Meshtasticu (kopira cijeli tekst s oznakom). Mobilni izbornik pokazuje sve odjeljke bez vodoravnog skrolanja. Detaljna provjera: `docs/audit-2026-11-08.md`.

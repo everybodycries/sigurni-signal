@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: GPL-3.0-only */
-export const VERSION='0.2.0';
+export const VERSION='0.3.0';
 export const CITIES=['Zagreb','Sarajevo','Beograd'];
 export const CHECKS=[['radio','Radio konfiguriran za lokalno dopušten profil'],['keys','Privatni kanal i kontakti provjereni osobno'],['charge','Radio i rezervne baterije napunjeni'],['bank','Powerbank i kabeli provjereni'],['offline','Priručnik spremljen i otvoren bez mreže'],['shelter','Veza ispitana iz dogovorenog unutarnjeg prostora'],['contacts','Papirnata kopija kontakata spremljena'],['family','Obiteljski postupak i mjesto dogovoreni'],['water','Zaliha vode i hrane pripremljena'],['medicine','Osobni lijekovi pripremljeni prema uputama liječnika'],['receiver','Baterijski prijamnik i svjetiljka provjereni'],['co','Generator i CO alarm pripremljeni prema uputama']];
 export const byteLength=s=>new TextEncoder().encode(s).length;
@@ -30,3 +30,6 @@ export function nextWatch(now=new Date()){
  }
  throw new Error('Termin nije dostupan.');
 }
+
+/** The native pilot generates a fresh wire ID; the official client sends plain text. */
+export function radioCopy(draft,client){const wire=wireMessage(draft.id,draft.body);if(client==='android')return draft.body.trim();if(client==='official')return wire;throw new Error('Odaberi radijski klijent.');}

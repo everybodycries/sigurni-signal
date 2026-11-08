@@ -1,24 +1,21 @@
 {
-  "checked_at_utc": "2026-11-08T06:45:25.233741+00:00",
-  "web_version": "0.2.2",
+  "checked_at_utc": "2026-11-08T10:14:25.511527+00:00",
+  "web_version": "0.3.0",
   "android_version": "0.1.0-pilot",
   "public_url": "https://sigurni-signal.pages.dev/",
   "source_repository": "https://github.com/everybodycries/sigurni-signal",
-  "release": "https://github.com/everybodycries/sigurni-signal/releases/tag/v0.2.2-web",
+  "release": "https://github.com/everybodycries/sigurni-signal/releases/tag/v0.3.0-web",
   "cloudflare_static_deployment": "verified",
-  "github_release": "published prerelease, three assets; SHA256 matches local APK/source",
+  "github_release": "See current release; native APK unchanged in v0.2.1-web",
   "production_checks": [
-    "HTTPS index and security headers",
-    "config version0.2.1 and supabase:null",
-    "source download hash",
-    "service worker controls page",
-    "offline reload",
-    "offline handbook both /guide.html and /guide"
+    "HTTPS and public assets",
+    "live Supabase policy catalog",
+    "hosted owner/cross-owner rollback tests"
   ],
   "automated_checks": {
     "python_tests": 48,
-    "web_tests": 11,
-    "postgres_rls": "isolated PostgreSQL16 ownership and invalid-envelope tests passed"
+    "web_tests": 12,
+    "operations_document_tests": 15
   },
   "supabase": {
     "status": "configured_existing_accounts",

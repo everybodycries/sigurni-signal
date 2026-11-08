@@ -11,3 +11,11 @@ test('backup encrypts, roundtrips, rejects wrong phrase and tampering',async()=>
 test('envelope bounds defend KDF/size abuse and short phrases',async()=>{await assert.rejects(seal(freshState(),'short'));assert.throws(()=>validateEnvelope({version:1,iterations:999999999}));const e=await seal(freshState(),'long private passphrase');assert.throws(()=>validateEnvelope({...e,iterations:1}));assert.throws(()=>validateEnvelope({...e,extra:'field'}));});
 
 test('next watch handles DST offset on the following day',()=>{assert.equal(nextWatch(new Date('2026-03-28T21:00:00Z')).at.toISOString(),'2026-03-29T06:00:00.000Z');assert.equal(nextWatch(new Date('2026-10-24T21:00:00Z')).at.toISOString(),'2026-10-25T07:00:00.000Z');});
+
+test('copy respects native-generated IDs and official text interoperability',async()=>{
+ const {radioCopy}=await import('../../web/lib/model.mjs');
+ const draft={id:'ABCDEFGH',body:'Dobro sam · čujemo se'};
+ assert.equal(radioCopy(draft,'android'),'Dobro sam · čujemo se');
+ assert.equal(radioCopy(draft,'official'),'[ABCDEFGH] Dobro sam · čujemo se');
+ assert.throws(()=>radioCopy(draft,'unknown'));
+});

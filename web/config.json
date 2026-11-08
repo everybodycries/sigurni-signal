@@ -1,5 +1,5 @@
 {
-  "webVersion": "0.2.2",
+  "webVersion": "0.3.0",
   "nativeVersion": "0.1.0-pilot",
   "supabase": {
     "url": "https://idgjvhuctieesmkyiwfl.supabase.co",
@@ -8,7 +8,7 @@
   "downloads": {
     "apk": "https://github.com/everybodycries/sigurni-signal/releases/download/v0.2.1-web/sigurni-signal-pilot.apk",
     "source": "/downloads/source.zip",
-    "release": "https://github.com/everybodycries/sigurni-signal/releases/tag/v0.2.2-web"
+    "release": "https://github.com/everybodycries/sigurni-signal/releases/tag/v0.3.0-web"
   },
   "nativeSha256": "271f7b1f51ded1b4c63967f53a92e67d844fa677703cf6de3e9014d2e11e0406",
   "cloudStatus": "configured_existing_accounts"
